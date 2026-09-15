@@ -1,0 +1,22 @@
+{
+  "amanteigados": {
+    "200g": 15,
+    "500g": 26,
+    "1kg": 53
+  },
+
+  "paes_caseiros": {
+    "unidade": 15
+  },
+
+  "esfirras": {
+    "combo_6": 28,
+    "combo_12": 52,
+    "combo_15": 65,
+    "combo_18": 85
+  },
+
+  "bebidas": {
+    "coca_cola_1_5l": 12
+  }
+}

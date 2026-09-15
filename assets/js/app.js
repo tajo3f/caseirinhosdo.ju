@@ -169,7 +169,7 @@
       `;
 
       return `
-        <article class="product-card" data-product-id="${product.id}">
+        <article class="product-card" data-vfx-tilt data-vfx-glare data-product-id="${product.id}">
           <div class="product-media">
             <img src="${product.image}" alt="${product.name} - Caseirinhos do Ju" width="1000" height="1000" ${imageLoading} decoding="async">
             ${product.badge ? `<span class="product-badge">${product.badge}</span>` : ""}
@@ -571,6 +571,29 @@
     });
   }
 
+  function focusableElements(container) {
+    if (!container) return [];
+    return $$(
+      'a[href],button:not([disabled]),input:not([disabled]),select:not([disabled]),textarea:not([disabled]),[tabindex]:not([tabindex="-1"])',
+      container
+    ).filter((element) => !element.hidden && element.getClientRects().length > 0);
+  }
+
+  function trapFocus(container, event) {
+    if (event.key !== "Tab" || !container) return;
+    const focusables = focusableElements(container);
+    if (!focusables.length) return;
+    const first = focusables[0];
+    const last = focusables[focusables.length - 1];
+    if (event.shiftKey && document.activeElement === first) {
+      event.preventDefault();
+      last.focus();
+    } else if (!event.shiftKey && document.activeElement === last) {
+      event.preventDefault();
+      first.focus();
+    }
+  }
+
   function initEvents() {
     dom.categoryTabs?.addEventListener("click", (event) => {
       const button = event.target.closest("[data-category]");
@@ -680,6 +703,12 @@
     dom.backTop?.addEventListener("click", () => window.scrollTo({ top: 0, behavior: "smooth" }));
 
     document.addEventListener("keydown", (event) => {
+      if (event.key === "Tab") {
+        if (!dom.checkoutModal.hidden) trapFocus(dom.checkoutModal, event);
+        else if (!dom.comboModal.hidden) trapFocus(dom.comboModal, event);
+        else if (dom.cartDrawer.classList.contains("open")) trapFocus(dom.cartDrawer, event);
+        return;
+      }
       if (event.key !== "Escape") return;
       if (!dom.checkoutModal.hidden) closeCheckout();
       else if (!dom.comboModal.hidden) closeCombo();

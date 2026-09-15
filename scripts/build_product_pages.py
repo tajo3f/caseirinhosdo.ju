@@ -110,6 +110,7 @@ def render_product(product: dict, site_url: str = "") -> str:
   <meta name="twitter:card" content="summary_large_image">
   <link rel="icon" type="image/png" href="../../assets/icons/icon-32.png">
   <link rel="stylesheet" href="../../assets/css/style.css">
+  <link rel="stylesheet" href="../../assets/css/vfx.css">
   <style>
     .product-page{{min-height:100vh;background:var(--cream-50)}}
     .product-page__header{{border-bottom:1px solid var(--line);background:rgba(255,250,240,.94);backdrop-filter:blur(16px);position:sticky;top:0;z-index:20}}
@@ -139,11 +140,12 @@ def render_product(product: dict, site_url: str = "") -> str:
   <script type="application/ld+json">{structured}</script>
 </head>
 <body class="product-page">
-  <header class="product-page__header"><div class="shell"><a class="product-page__brand" href="../../index.html"><img src="../../assets/images/logo.webp" alt="{COMPANY}" width="54" height="54"><span>{COMPANY}</span></a><a class="product-page__back" href="../../index.html#cardapio">← Voltar ao cardápio</a></div></header>
+  <header class="product-page__header"><div class="shell"><a class="product-page__brand" href="../../index.html"><img src="../../assets/images/logo.webp" alt="{COMPANY}" width="54" height="54"><span>{COMPANY}</span></a><span class="product-page__credit" aria-label="Site desenvolvido pela TAJO Digital 3F"><span>site desenvolvido por</span><strong>TAJO Digital 3F</strong></span><a class="product-page__back" href="../../index.html#cardapio">← Voltar ao cardápio</a></div></header>
   <main class="product-page__main"><div class="shell product-page__grid">
-    <figure class="product-page__media"><img src="{image_src}" alt="{name} - {COMPANY}" width="1000" height="1000" fetchpriority="high"></figure>
+    <figure class="product-page__media" data-vfx-glare><img src="{image_src}" alt="{name} - {COMPANY}" width="1000" height="1000" fetchpriority="high"></figure>
     <section class="product-page__copy"><span class="kicker">{category}</span><h1>{name}</h1><p>{description}</p><div class="product-page__price">{price_html}</div><ul class="product-page__options">{options_html}</ul>{flavors_html}<div class="product-page__actions"><a class="btn btn--primary" href="{wa}" target="_blank" rel="noopener">Pedir pelo WhatsApp →</a><a class="btn btn--secondary" href="../../index.html#cardapio">Continuar escolhendo</a></div><p class="product-page__note">A disponibilidade, retirada, entrega e eventual taxa são confirmadas diretamente pelo atendimento no WhatsApp.</p></section>
   </div></main>
+  <script src="../../assets/js/vfx.js" defer></script>
 </body>
 </html>'''
 

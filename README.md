@@ -1,4 +1,26 @@
-# Caseirinhos do Ju — Premium V6
+# Caseirinhos do Ju — Premium V7 ULTRA
+
+Versão evoluída com a **TAJO WEB MASTER SKILL V2 ULTRA** aplicada sobre a base V6.1, preservando o catálogo, o carrinho e a integração com WhatsApp.
+
+## O que mudou na V7
+
+- nova camada visual `assets/css/vfx.css`, separada do CSS principal;
+- nova camada de interação `assets/js/vfx.js`, sem bibliotecas externas;
+- imagens novas e aproximadas das esfirras, sem textos sobrepostos;
+- efeitos de profundidade no hero, glare controlado, partículas discretas, ribbon artesanal, microinterações e feedback do carrinho;
+- `prefers-reduced-motion` respeitado e efeitos de tilt desativados em telas touch;
+- assinatura **“Site desenvolvido por TAJO Digital 3F” apenas no cabeçalho**;
+- páginas de produto continuam geradas automaticamente;
+- GitHub Pages continua sendo caminho oficial de deploy;
+- cache do Service Worker atualizado para `caseirinhos-v7-ultra`;
+- foco de teclado preso dentro de modais/carrinho quando abertos;
+- testes automatizados ampliados para validar a camada ULTRA e os novos assets.
+
+## Arquitetura
+
+Site estático em HTML5 + CSS3 + JavaScript Vanilla, com Python apenas para build, validação e servidor local opcional. Não há React, Next.js ou bundler obrigatório.
+
+## Documentação anterior / instruções de uso
 
 Catálogo digital mobile-first para **Pães & Biscoitos**, com identidade visual própria, carrinho persistente, combos de esfirras, checkout via WhatsApp, SEO técnico, páginas individuais de produto, PWA e publicação automatizada no GitHub Pages.
 

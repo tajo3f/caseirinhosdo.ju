@@ -1,13 +1,16 @@
-const CACHE = "caseirinhos-v6-2-modal-hotfix";
+const CACHE = "caseirinhos-v7-ultra";
 const CORE = [
   "./",
   "index.html",
   "offline.html",
   "assets/css/style.css",
+  "assets/css/vfx.css",
   "assets/js/catalog-data.js",
   "assets/js/app.js",
+  "assets/js/vfx.js",
   "assets/images/logo.webp",
   "assets/images/coca-cola-1-5l.webp",
+  "assets/images/esfirra-carne-cheddar.webp",
   "manifest.webmanifest"
 ];
 

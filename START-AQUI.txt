@@ -1,10 +1,26 @@
-CASEIRINHOS DO JU — PREMIUM V6
+CASEIRINHOS DO JU — V7 ULTRA
 
-1) Teste rápido: abra index.html.
-2) Para editar produtos/preços: data/catalog.json.
-3) Depois de editar: python scripts/build_catalog.py && python scripts/build_product_pages.py
-4) Para GitHub Pages: envie todo o conteúdo desta pasta para a raiz do repositório e selecione GitHub Actions em Settings > Pages.
-5) Leia README.md e docs/GITHUB-PAGES.md.
+1) Para testar localmente:
+   python server.py
+   Abra http://localhost:8000
 
-WhatsApp configurado: 55 27 99651-1588
-Instagram configurado: @caseirinho.doju
+2) Para editar produtos e preços:
+   data/catalog.json
+   Depois rode: python scripts/build_catalog.py
+
+3) Para trocar imagens:
+   assets/images/
+
+4) Camada visual principal:
+   assets/css/style.css
+   assets/css/vfx.css
+
+5) Interações:
+   assets/js/app.js
+   assets/js/vfx.js
+
+6) GitHub Pages:
+   suba todos os arquivos na raiz do repositório.
+   O workflow .github/workflows/pages.yml faz validação, build e deploy.
+
+A assinatura TAJO Digital 3F fica somente no cabeçalho do site.

@@ -1,0 +1,245 @@
+/* Caseirinhos do Ju — V7 ULTRA visual layer
+   Purposeful motion and depth only. No external libraries. */
+:root{
+  --font-display: Georgia,"Times New Roman",serif;
+  --vfx-amber:rgba(201,117,24,.22);
+  --vfx-brown:rgba(60,24,11,.16);
+  --vfx-paper:rgba(255,250,240,.76);
+  --vfx-x:50%;
+  --vfx-y:50%;
+}
+
+/* Soft paper grain made only with CSS: no extra request. */
+body::before{
+  content:"";
+  position:fixed;
+  inset:0;
+  z-index:100;
+  pointer-events:none;
+  opacity:.12;
+  background-image:
+    radial-gradient(circle at 20% 20%,rgba(86,34,15,.16) 0 .45px,transparent .65px),
+    radial-gradient(circle at 80% 65%,rgba(174,95,17,.12) 0 .45px,transparent .65px);
+  background-size:10px 10px,13px 13px;
+}
+
+/* Header signature — the only visible TAJO credit on the site. */
+.tajo-signature{
+  display:flex;
+  flex-direction:column;
+  justify-content:center;
+  gap:1px;
+  min-width:max-content;
+  padding:7px 10px;
+  border-left:1px solid var(--line);
+  color:#7d685b;
+  line-height:1.05;
+}
+.tajo-signature span{font-size:.54rem;text-transform:uppercase;letter-spacing:.14em;font-weight:800}
+.tajo-signature strong{font-size:.68rem;letter-spacing:.02em;color:var(--brown-800)}
+.tajo-signature__short{display:none}
+.site-header::after{
+  content:"";
+  position:absolute;
+  left:0;right:0;bottom:-1px;height:1px;
+  background:linear-gradient(90deg,transparent 3%,rgba(201,117,24,.38),rgba(86,34,15,.24),transparent 97%);
+  pointer-events:none;
+}
+
+/* CTA sheen: brief, directional and not continuous. */
+.btn,.cart-chip,.add-product{position:relative;overflow:hidden;isolation:isolate}
+.btn::after,.cart-chip::after,.add-product::after{
+  content:"";
+  position:absolute;
+  inset:-35% auto -35% -45%;
+  width:28%;
+  transform:skewX(-18deg) translateX(-180%);
+  background:linear-gradient(90deg,transparent,rgba(255,255,255,.42),transparent);
+  transition:transform .65s var(--ease);
+  pointer-events:none;
+  z-index:2;
+}
+.btn:hover::after,.cart-chip:hover::after,.add-product:hover::after{transform:skewX(-18deg) translateX(650%)}
+
+/* Hero depth and warm spotlight */
+.hero{isolation:isolate}
+.hero::after{
+  content:"";
+  position:absolute;
+  inset:0;
+  z-index:0;
+  pointer-events:none;
+  background:
+    radial-gradient(420px circle at var(--vfx-x) var(--vfx-y),rgba(255,255,255,.28),transparent 68%),
+    linear-gradient(115deg,transparent 0 48%,rgba(255,255,255,.11) 52%,transparent 58%);
+  opacity:.92;
+}
+.hero__grid{position:relative;z-index:1}
+.hero__visual{perspective:1100px;transform-style:preserve-3d;will-change:transform}
+.hero__visual::before{
+  content:"";
+  position:absolute;
+  width:62%;aspect-ratio:1;
+  border-radius:50%;
+  right:7%;top:13%;
+  background:radial-gradient(circle,rgba(255,218,155,.5),rgba(201,117,24,.13) 40%,transparent 70%);
+  filter:blur(18px);
+  z-index:-1;
+  transform:translate3d(var(--halo-x,0),var(--halo-y,0),0);
+  transition:transform .22s ease-out;
+}
+.hero-photo,.hero__logo-card,.hero-sticker{will-change:transform;transition:transform .26s cubic-bezier(.2,.7,.2,1),box-shadow .26s ease}
+.hero-photo:hover{box-shadow:0 34px 92px rgba(51,20,8,.25)}
+.hero__logo-card{backdrop-filter:blur(10px)}
+.hero__logo-card::after{
+  content:"";position:absolute;inset:8px;border-radius:50%;border:1px dashed rgba(174,95,17,.26);pointer-events:none
+}
+.hero-particles{position:absolute;inset:0;pointer-events:none;z-index:6;overflow:visible}
+.hero-particles span{position:absolute;width:8px;height:8px;border-radius:55% 45% 62% 38%;background:linear-gradient(145deg,#d6923f,#7d3b16);box-shadow:0 4px 10px rgba(60,24,11,.18);opacity:.52;animation:crumbFloat 5.8s ease-in-out infinite}
+.hero-particles span:nth-child(1){left:13%;top:29%;width:7px;height:11px;animation-delay:-1.4s;transform:rotate(24deg)}
+.hero-particles span:nth-child(2){left:31%;top:12%;width:5px;height:8px;animation-delay:-3.2s}
+.hero-particles span:nth-child(3){right:19%;top:2%;width:7px;height:7px;animation-delay:-.8s}
+.hero-particles span:nth-child(4){right:5%;top:45%;width:6px;height:9px;animation-delay:-2.5s}
+.hero-particles span:nth-child(5){left:28%;bottom:3%;width:6px;height:6px;animation-delay:-4.1s}
+@keyframes crumbFloat{0%,100%{translate:0 0;rotate:0deg}50%{translate:0 -12px;rotate:18deg}}
+
+/* Brand-specific ribbon. */
+.artisan-ribbon{
+  overflow:hidden;
+  border-block:1px solid rgba(86,34,15,.11);
+  background:var(--brown-950);
+  color:#f9dfb6;
+  white-space:nowrap;
+}
+.artisan-ribbon__track{
+  display:flex;
+  width:max-content;
+  gap:28px;
+  padding:11px 0;
+  font-size:.67rem;
+  font-weight:900;
+  letter-spacing:.15em;
+  text-transform:uppercase;
+  animation:ribbonFlow 30s linear infinite;
+}
+.artisan-ribbon__track span{display:flex;align-items:center;gap:28px}
+.artisan-ribbon__track span::after{content:"✦";color:#d99035;font-size:.6rem}
+@keyframes ribbonFlow{to{transform:translateX(-50%)}}
+
+/* VFX glare follows pointer. */
+[data-vfx-glare]{position:relative;isolation:isolate}
+[data-vfx-glare]::after{
+  content:"";
+  position:absolute;
+  inset:0;
+  z-index:3;
+  pointer-events:none;
+  opacity:0;
+  background:radial-gradient(240px circle at var(--glare-x,50%) var(--glare-y,50%),rgba(255,255,255,.30),transparent 58%);
+  transition:opacity .25s ease;
+}
+[data-vfx-glare]:hover::after{opacity:1}
+
+/* Flavor gallery redesigned around the generated close-ups. */
+.flavors{position:relative;overflow:hidden;background:linear-gradient(180deg,#fff 0%,#fffaf0 100%)}
+.flavors::before{
+  content:"";position:absolute;width:520px;height:520px;left:-280px;top:16%;border-radius:50%;background:radial-gradient(circle,rgba(201,117,24,.10),transparent 68%);pointer-events:none
+}
+.flavor-grid{gap:18px}
+.flavor-card{
+  position:relative;
+  padding:10px 10px 18px;
+  border-radius:30px;
+  background:rgba(255,255,255,.74);
+  border:1px solid rgba(86,34,15,.09);
+  box-shadow:0 16px 48px rgba(63,28,10,.07);
+  transform:perspective(900px) rotateX(var(--tilt-x,0deg)) rotateY(var(--tilt-y,0deg));
+  transform-style:preserve-3d;
+  transition:transform .2s ease-out,box-shadow .25s ease,border-color .25s ease;
+}
+.flavor-card:hover{box-shadow:0 24px 60px rgba(63,28,10,.12);border-color:rgba(201,117,24,.22)}
+.flavor-media{height:auto;aspect-ratio:1/1;border-radius:24px;background:#f5e1be;overflow:hidden}
+.flavor-media img{object-fit:cover;object-position:center;transform:scale(1.018);transition:transform .65s var(--ease),filter .4s ease}
+.flavor-card:hover .flavor-media img{transform:scale(1.065);filter:saturate(1.04) contrast(1.02)}
+.flavor-media span{z-index:5;backdrop-filter:blur(8px);box-shadow:0 10px 28px rgba(43,18,8,.12)}
+.flavor-card h3,.flavor-card p,.flavor-card .text-button{margin-left:8px;margin-right:8px}
+.flavor-card h3{margin-top:17px}
+.flavor-card .text-button{display:inline-flex;margin-top:2px}
+
+/* Combo / catalog cards gain subtle depth without changing layout. */
+.combo-card,.product-card,.editorial-card{
+  transform:perspective(1100px) rotateX(var(--tilt-x,0deg)) rotateY(var(--tilt-y,0deg)) translateY(var(--lift,0px));
+  transform-style:preserve-3d;
+  will-change:transform;
+}
+.combo-card:hover,.product-card:hover{--lift:-5px}
+.combo-card > *,.product-content,.editorial-card__overlay{transform:translateZ(10px)}
+.product-media{overflow:hidden}
+.product-media::before,.editorial-card::before,.flavor-media::before,.drink-card__media::before{
+  content:"";position:absolute;inset:-1px;z-index:2;pointer-events:none;border-radius:inherit;
+  box-shadow:inset 0 0 0 1px rgba(255,255,255,.28),inset 0 -70px 90px rgba(43,18,8,.05)
+}
+
+/* Product cards receive a soft branded reveal. */
+.products-grid .product-card{animation:cardArrive .42s var(--ease) both}
+.products-grid .product-card:nth-child(2n){animation-delay:.025s}
+.products-grid .product-card:nth-child(3n){animation-delay:.05s}
+@keyframes cardArrive{from{opacity:0;transform:translateY(14px) scale(.985)}to{opacity:1;transform:translateY(0) scale(1)}}
+
+/* Cart feedback */
+.cart-chip.is-pulsing b,.mobile-cart.is-pulsing b{animation:cartPulse .48s cubic-bezier(.2,.8,.2,1)}
+@keyframes cartPulse{0%{transform:scale(1)}40%{transform:scale(1.38)}100%{transform:scale(1)}}
+
+/* Reveal gains slight scale and section-specific stagger. */
+.reveal{transform:translateY(22px) scale(.992);filter:blur(2px)}
+.reveal.in-view{transform:none;filter:none}
+.editorial-grid.reveal.in-view .editorial-card:nth-child(2){transition-delay:.06s}
+.editorial-grid.reveal.in-view .editorial-card:nth-child(3){transition-delay:.11s}
+
+/* Product-page polish (generated pages share this stylesheet). */
+.product-page__media{isolation:isolate}
+.product-page__media::after{
+  content:"";position:absolute;inset:0;pointer-events:none;background:linear-gradient(125deg,rgba(255,255,255,.14),transparent 35% 70%,rgba(201,117,24,.08));mix-blend-mode:screen
+}
+.product-page__credit{display:flex;flex-direction:column;line-height:1.05;margin-left:auto;margin-right:10px;padding-left:14px;border-left:1px solid var(--line)}
+.product-page__credit span{font-size:.52rem;text-transform:uppercase;letter-spacing:.12em;color:var(--muted);font-weight:800}
+.product-page__credit strong{font-size:.67rem;color:var(--brown-800)}
+
+/* Responsive tuning for the richer layer. */
+@media (max-width:1100px){
+  .tajo-signature{padding:6px 8px;border-left:0;border-radius:10px;background:rgba(255,255,255,.54)}
+  .tajo-signature span{display:none}
+  .tajo-signature strong{font-size:.62rem;letter-spacing:.015em}
+}
+@media (max-width:820px){
+  body::before{opacity:.08}
+  .artisan-ribbon__track{animation-duration:36s}
+  .flavor-card{padding:8px 8px 14px;display:grid!important;grid-template-columns:180px 1fr!important;grid-template-rows:auto auto auto!important;column-gap:18px!important;align-items:start!important}
+  .flavor-card .flavor-media{grid-row:1/4;height:auto;aspect-ratio:1/1}
+}
+@media (max-width:600px){
+  .tajo-signature{padding:5px 6px;background:transparent}
+  .tajo-signature strong{font-size:.54rem;max-width:58px;line-height:1.08;text-align:center}
+  .hero-particles{display:none}
+  .flavor-card{grid-template-columns:126px 1fr!important;column-gap:13px!important;border-radius:22px}
+  .flavor-card .flavor-media{height:auto;border-radius:17px}
+  .flavor-card h3{margin:8px 0 4px 0;font-size:1.08rem}
+  .flavor-card p{margin:0 0 7px 0;font-size:.77rem}
+  .flavor-card .text-button{margin:0;font-size:.76rem}
+  .artisan-ribbon__track{font-size:.6rem;gap:20px;padding:9px 0}
+  .product-page__credit{display:none}
+}
+
+@media (hover:none),(pointer:coarse){
+  [data-vfx-glare]::after{display:none}
+  .combo-card,.product-card,.editorial-card,.flavor-card{transform:none!important}
+}
+
+@media (prefers-reduced-motion:reduce){
+  .hero-particles,.artisan-ribbon__track{animation:none!important}
+  .artisan-ribbon__track{transform:none!important}
+  .combo-card,.product-card,.editorial-card,.flavor-card,.hero-photo,.hero__logo-card,.hero-sticker{transform:none!important}
+  .products-grid .product-card{animation:none!important}
+  [data-vfx-glare]::after{display:none!important}
+  .btn::after,.cart-chip::after,.add-product::after{display:none!important}
+}

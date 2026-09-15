@@ -33,6 +33,7 @@
   <link rel="preload" href="assets/images/logo.webp" as="image" type="image/webp" fetchpriority="high">
   <link rel="preload" href="assets/images/coco-chocolate.webp" as="image" type="image/webp" fetchpriority="high">
   <link rel="stylesheet" href="assets/css/style.css">
+  <link rel="stylesheet" href="assets/css/vfx.css">
 
   <script type="application/ld+json">
   {
@@ -65,6 +66,10 @@
         <span class="brand__text"><strong>Caseirinhos do Ju</strong><small>Pães & Biscoitos</small></span>
       </a>
 
+      <div class="tajo-signature" aria-label="Site desenvolvido pela TAJO Digital 3F">
+        <span>site desenvolvido por</span><strong>TAJO Digital 3F</strong>
+      </div>
+
       <nav class="desktop-nav" aria-label="Navegação principal">
         <a href="#combos">Combos</a>
         <a href="#sabores">Esfirras</a>
@@ -94,8 +99,9 @@
   </header>
 
   <main>
-    <section class="hero" aria-labelledby="heroTitle">
+    <section class="hero" aria-labelledby="heroTitle" data-vfx-glare>
       <div class="hero__glow" aria-hidden="true"></div>
+      <div class="hero-particles" aria-hidden="true"><span></span><span></span><span></span><span></span><span></span></div>
       <div class="shell hero__grid">
         <div class="hero__copy reveal">
           <span class="eyebrow">FEITOS COM CARINHO · SABOR DE CASA</span>
@@ -112,10 +118,10 @@
           </div>
         </div>
 
-        <div class="hero__visual reveal" aria-label="Seleção de produtos Caseirinhos do Ju">
+        <div class="hero__visual reveal" aria-label="Seleção de produtos Caseirinhos do Ju" data-vfx-glare>
           <div class="hero__logo-card"><img src="assets/images/logo.webp" alt="Caseirinhos do Ju" width="360" height="360"></div>
           <figure class="hero-photo hero-photo--main"><img src="assets/images/coco-chocolate.webp" alt="Amanteigados de coco com chocolate" width="1000" height="1000" fetchpriority="high" decoding="async"></figure>
-          <figure class="hero-photo hero-photo--small hero-photo--a"><img src="assets/images/esfirra-carne-cheddar.webp" alt="Esfirras de carne temperada com cheddar" width="720" height="960" decoding="async"></figure>
+          <figure class="hero-photo hero-photo--small hero-photo--a"><img src="assets/images/esfirra-carne-cheddar.webp" alt="Esfirras de carne temperada com cheddar" width="1200" height="1200" decoding="async"></figure>
           <figure class="hero-photo hero-photo--small hero-photo--b"><img src="assets/images/goiabinha.webp" alt="Amanteigados de goiabinha" width="1000" height="1000" decoding="async"></figure>
           <span class="hero-sticker">100%<br><strong>artesanal</strong></span>
         </div>
@@ -130,6 +136,13 @@
       </div>
     </section>
 
+    <div class="artisan-ribbon" aria-label="Produtos do Caseirinhos do Ju">
+      <div class="artisan-ribbon__track" aria-hidden="true">
+        <span>Pães caseiros</span><span>Biscoitos artesanais</span><span>Esfirras abertas</span><span>Casadinhos</span><span>Feitos com carinho</span>
+        <span>Pães caseiros</span><span>Biscoitos artesanais</span><span>Esfirras abertas</span><span>Casadinhos</span><span>Feitos com carinho</span>
+      </div>
+    </div>
+
     <section class="editorial section" aria-labelledby="editorialTitle">
       <div class="shell">
         <div class="section-heading reveal">
@@ -139,15 +152,15 @@
         </div>
 
         <div class="editorial-grid reveal">
-          <article class="editorial-card editorial-card--wide">
+          <article class="editorial-card editorial-card--wide" data-vfx-tilt data-vfx-glare>
             <img src="assets/images/goiabinha.webp" alt="Amanteigados de goiabinha" width="1000" height="1000" loading="lazy" decoding="async">
             <div class="editorial-card__overlay"><span>Amanteigados</span><h3>Goiabinha</h3><a href="#cardapio" data-filter="Amanteigados">Ver opções →</a></div>
           </article>
-          <article class="editorial-card">
+          <article class="editorial-card" data-vfx-tilt data-vfx-glare>
             <img src="assets/images/pao-doce.webp" alt="Pão caseiro doce" width="1000" height="1000" loading="lazy" decoding="async">
             <div class="editorial-card__overlay"><span>Pães</span><h3>Pão caseiro doce</h3><a href="#cardapio" data-filter="Pães">Ver pães →</a></div>
           </article>
-          <article class="editorial-card">
+          <article class="editorial-card" data-vfx-tilt data-vfx-glare>
             <img src="assets/images/casadinho.webp" alt="Casadinhos artesanais" width="1000" height="1000" loading="lazy" decoding="async">
             <div class="editorial-card__overlay"><span>Casadinhos</span><h3>Feitos para compartilhar</h3><a href="#cardapio" data-filter="Casadinhos">Ver casadinhos →</a></div>
           </article>
@@ -163,10 +176,10 @@
         </div>
 
         <div class="combo-grid reveal">
-          <article class="combo-card" data-combo-id="11" data-option-index="0"><span class="combo-card__qty">6 un.</span><h3>Combo Esfirra</h3><p>Uma bandeja com 6 esfirras abertas.</p><strong>R$ 28,00</strong><button type="button" class="combo-card__button">Escolher sabor</button></article>
-          <article class="combo-card combo-card--accent" data-combo-id="11" data-option-index="1"><span class="combo-card__label">PARA DOIS</span><span class="combo-card__qty">12 un.</span><h3>Combo Casal</h3><p>12 esfirras abertas para dividir.</p><strong>R$ 52,00</strong><button type="button" class="combo-card__button">Escolher sabor</button></article>
-          <article class="combo-card" data-combo-id="11" data-option-index="2"><span class="combo-card__qty">15 un.</span><h3>Combo Família</h3><p>15 esfirras abertas para a mesa.</p><strong>R$ 65,00</strong><button type="button" class="combo-card__button">Escolher sabor</button></article>
-          <article class="combo-card combo-card--dark" data-combo-id="11" data-option-index="3"><span class="combo-card__label">MAIOR COMBO</span><span class="combo-card__qty">18 un.</span><h3>Combo Festa</h3><p>18 esfirras abertas para compartilhar.</p><strong>R$ 85,00</strong><button type="button" class="combo-card__button">Escolher sabor</button></article>
+          <article class="combo-card" data-vfx-tilt data-vfx-glare data-combo-id="11" data-option-index="0"><span class="combo-card__qty">6 un.</span><h3>Combo Esfirra</h3><p>Uma bandeja com 6 esfirras abertas.</p><strong>R$ 28,00</strong><button type="button" class="combo-card__button">Escolher sabor</button></article>
+          <article class="combo-card combo-card--accent" data-vfx-tilt data-vfx-glare data-combo-id="11" data-option-index="1"><span class="combo-card__label">PARA DOIS</span><span class="combo-card__qty">12 un.</span><h3>Combo Casal</h3><p>12 esfirras abertas para dividir.</p><strong>R$ 52,00</strong><button type="button" class="combo-card__button">Escolher sabor</button></article>
+          <article class="combo-card" data-vfx-tilt data-vfx-glare data-combo-id="11" data-option-index="2"><span class="combo-card__qty">15 un.</span><h3>Combo Família</h3><p>15 esfirras abertas para a mesa.</p><strong>R$ 65,00</strong><button type="button" class="combo-card__button">Escolher sabor</button></article>
+          <article class="combo-card combo-card--dark" data-vfx-tilt data-vfx-glare data-combo-id="11" data-option-index="3"><span class="combo-card__label">MAIOR COMBO</span><span class="combo-card__qty">18 un.</span><h3>Combo Festa</h3><p>18 esfirras abertas para compartilhar.</p><strong>R$ 85,00</strong><button type="button" class="combo-card__button">Escolher sabor</button></article>
         </div>
       </div>
     </section>
@@ -175,9 +188,9 @@
       <div class="shell">
         <div class="section-heading reveal"><span class="kicker">SABORES DAS ESFIRRAS</span><h2 id="flavorsTitle">Três sabores, uma massa douradinha.</h2><p>Veja as opções disponíveis para os combos.</p></div>
         <div class="flavor-grid reveal">
-          <article><div class="flavor-media"><img src="assets/images/esfirra-queijo-presunto.webp" alt="Esfirra de queijo e presunto" width="720" height="960" loading="lazy" decoding="async"><span>01</span></div><h3>Queijo & Presunto</h3><p>Esfirra aberta de queijo com presunto.</p><button class="text-button" type="button" data-open-combo="Queijo e Presunto">Pedir esse sabor →</button></article>
-          <article><div class="flavor-media"><img src="assets/images/esfirra-queijo-manjericao.webp" alt="Esfirra de queijo e manjericão" width="1080" height="1440" loading="lazy" decoding="async"><span>02</span></div><h3>Queijo & Manjericão</h3><p>Esfirra aberta de queijo com manjericão.</p><button class="text-button" type="button" data-open-combo="Queijo e Manjericão">Pedir esse sabor →</button></article>
-          <article><div class="flavor-media"><img src="assets/images/esfirra-carne-cheddar.webp" alt="Esfirra de carne temperada com cheddar" width="720" height="960" loading="lazy" decoding="async"><span>03</span></div><h3>Carne Temperada & Cheddar</h3><p>Esfirra aberta de carne temperada com cheddar.</p><button class="text-button" type="button" data-open-combo="Carne Temperada com Cheddar">Pedir esse sabor →</button></article>
+          <article class="flavor-card" data-vfx-tilt><div class="flavor-media" data-vfx-glare><img src="assets/images/esfirra-queijo-presunto.webp" alt="Esfirras abertas de queijo e presunto em close" width="1200" height="1200" loading="lazy" decoding="async"><span>01</span></div><h3>Queijo & Presunto</h3><p>Esfirra aberta de queijo com presunto.</p><button class="text-button" type="button" data-open-combo="Queijo e Presunto">Pedir esse sabor →</button></article>
+          <article class="flavor-card" data-vfx-tilt><div class="flavor-media" data-vfx-glare><img src="assets/images/esfirra-queijo-manjericao.webp" alt="Esfirras abertas de queijo e manjericão em close" width="1200" height="1200" loading="lazy" decoding="async"><span>02</span></div><h3>Queijo & Manjericão</h3><p>Esfirra aberta de queijo com manjericão.</p><button class="text-button" type="button" data-open-combo="Queijo e Manjericão">Pedir esse sabor →</button></article>
+          <article class="flavor-card" data-vfx-tilt><div class="flavor-media" data-vfx-glare><img src="assets/images/esfirra-carne-cheddar.webp" alt="Esfirras abertas de carne temperada com cheddar em close" width="1200" height="1200" loading="lazy" decoding="async"><span>03</span></div><h3>Carne Temperada & Cheddar</h3><p>Esfirra aberta de carne temperada com cheddar.</p><button class="text-button" type="button" data-open-combo="Carne Temperada com Cheddar">Pedir esse sabor →</button></article>
         </div>
       </div>
     </section>
@@ -202,13 +215,13 @@
     <section class="drink-section" aria-labelledby="drinkTitle">
       <div class="shell drink-card reveal">
         <div class="drink-card__copy"><span class="kicker kicker--light">PARA ACOMPANHAR</span><h2 id="drinkTitle">Coca-Cola 1,5L</h2><p>Complete seu pedido com Coca-Cola 1,5L e envie tudo junto pelo WhatsApp.</p><div class="drink-card__buy"><strong>R$ 12,00</strong><button class="btn btn--cream" type="button" data-quick-add="12">Adicionar ao pedido</button></div></div>
-        <figure class="drink-card__media"><img src="assets/images/coca-cola-1-5l.webp" alt="Garrafa de Coca-Cola 1,5L" width="1000" height="1000" loading="lazy" decoding="async"></figure>
+        <figure class="drink-card__media" data-vfx-glare><img src="assets/images/coca-cola-1-5l.webp" alt="Garrafa de Coca-Cola 1,5L" width="1000" height="1000" loading="lazy" decoding="async"></figure>
       </div>
     </section>
 
     <section class="brand-story section" id="marca" aria-labelledby="brandTitle">
       <div class="shell brand-story__grid">
-        <div class="brand-story__media reveal"><img src="assets/images/embalagem-caseirinhos.webp" alt="Embalagem do Caseirinhos do Ju" width="1000" height="1000" loading="lazy" decoding="async"><div class="brand-story__mark"><img src="assets/images/logo.webp" alt="" width="220" height="220"></div></div>
+        <div class="brand-story__media reveal" data-vfx-glare><img src="assets/images/embalagem-caseirinhos.webp" alt="Embalagem do Caseirinhos do Ju" width="1000" height="1000" loading="lazy" decoding="async"><div class="brand-story__mark"><img src="assets/images/logo.webp" alt="" width="220" height="220"></div></div>
         <div class="brand-story__copy reveal"><span class="kicker">CASEIRINHOS DO JU</span><h2 id="brandTitle">Pães & Biscoitos feitos com carinho e sabor de casa.</h2><p>Do biscoito amanteigado ao pão caseiro, o Caseirinhos do Ju reúne opções para o café, o lanche e momentos de compartilhar. Escolha o que deseja e mande o pedido direto para o atendimento.</p><div class="brand-values"><div><strong>01</strong><span>Produção artesanal</span></div><div><strong>02</strong><span>Pães, biscoitos e esfirras</span></div><div><strong>03</strong><span>Pedidos pelo WhatsApp</span></div></div></div>
       </div>
     </section>
@@ -292,5 +305,6 @@
 
   <script src="assets/js/catalog-data.js" defer></script>
   <script src="assets/js/app.js" defer></script>
+  <script src="assets/js/vfx.js" defer></script>
 </body>
 </html>

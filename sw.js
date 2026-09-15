@@ -1,4 +1,4 @@
-const CACHE = "caseirinhos-v6-1";
+const CACHE = "caseirinhos-v6-2-modal-hotfix";
 const CORE = [
   "./",
   "index.html",

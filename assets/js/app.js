@@ -348,14 +348,18 @@
     closeCart({ keepLocked: true });
     dom.checkoutModal.hidden = false;
     dom.checkoutModal.setAttribute("aria-hidden", "false");
+    const checkoutPanel = dom.checkoutModal.querySelector(".modal__panel");
+    if (checkoutPanel) checkoutPanel.scrollTop = 0;
     dom.checkoutTotal.textContent = money.format(cartTotal());
     lockBody(true);
-    window.setTimeout(() => dom.checkoutForm.elements.name?.focus(), 60);
+    window.setTimeout(() => dom.checkoutForm.elements.name?.focus({ preventScroll: true }), 60);
   }
 
   function closeCheckout() {
     dom.checkoutModal.hidden = true;
     dom.checkoutModal.setAttribute("aria-hidden", "true");
+    const checkoutPanel = dom.checkoutModal.querySelector(".modal__panel");
+    if (checkoutPanel) checkoutPanel.scrollTop = 0;
     dom.formError.hidden = true;
     lockBody(false);
   }
@@ -374,13 +378,17 @@
     `).join("");
     dom.comboModal.hidden = false;
     dom.comboModal.setAttribute("aria-hidden", "false");
+    const comboPanel = dom.comboModal.querySelector(".modal__panel");
+    if (comboPanel) comboPanel.scrollTop = 0;
     lockBody(true);
-    window.setTimeout(() => $("input[name='comboFlavor']:checked", dom.comboModal)?.focus(), 60);
+    window.setTimeout(() => $("input[name='comboFlavor']:checked", dom.comboModal)?.focus({ preventScroll: true }), 60);
   }
 
   function closeCombo() {
     dom.comboModal.hidden = true;
     dom.comboModal.setAttribute("aria-hidden", "true");
+    const comboPanel = dom.comboModal.querySelector(".modal__panel");
+    if (comboPanel) comboPanel.scrollTop = 0;
     lockBody(false);
   }
 
@@ -690,6 +698,16 @@
   }
 
   function init() {
+    // Estado inicial defensivo: nenhum overlay/modal pode nascer visível ao carregar a página.
+    [dom.checkoutModal, dom.comboModal, dom.drawerOverlay].forEach((element) => {
+      if (element) element.hidden = true;
+    });
+    dom.checkoutModal?.setAttribute("aria-hidden", "true");
+    dom.comboModal?.setAttribute("aria-hidden", "true");
+    dom.cartDrawer?.classList.remove("open");
+    dom.cartDrawer?.setAttribute("aria-hidden", "true");
+    lockBody(false);
+
     if (!products.length) {
       console.error("Caseirinhos: catalog data was not loaded.");
       if (dom.emptyState) dom.emptyState.hidden = false;

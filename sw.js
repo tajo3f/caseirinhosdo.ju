@@ -5,7 +5,6 @@ const CORE = [
   "offline.html",
   "assets/css/style.css",
   "assets/css/vfx.css",
-  "assets/js/catalog-data.js",
   "assets/js/app.js",
   "assets/js/vfx.js",
   "assets/images/logo.webp",
@@ -44,6 +43,24 @@ self.addEventListener("fetch", (event) => {
     );
     return;
   }
+
+if (url.pathname.endsWith("/assets/js/catalog-data.js")) {
+  event.respondWith(
+    fetch(request, { cache: "no-store" })
+      .then((response) => {
+        const copy = response.clone();
+
+        caches.open(CACHE).then((cache) => {
+          cache.put(request, copy);
+        });
+
+        return response;
+      })
+      .catch(() => caches.match(request))
+  );
+
+  return;
+}
 
   event.respondWith(
     caches.match(request).then((cached) => {

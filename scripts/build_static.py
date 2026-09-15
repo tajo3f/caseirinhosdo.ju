@@ -9,7 +9,6 @@ from urllib.parse import urljoin
 ROOT = Path(__file__).resolve().parents[1]
 DIST = ROOT / "dist"
 
-
 def ensure_trailing_slash(url: str) -> str:
     return url if url.endswith("/") else url + "/"
 

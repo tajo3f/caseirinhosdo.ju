@@ -31,6 +31,5 @@ def main() -> None:
     OUT.write_text(js, encoding="utf-8")
     print(f"generated {OUT.relative_to(ROOT)} with {len(products)} products")
 
-
 if __name__ == "__main__":
     main()

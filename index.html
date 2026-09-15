@@ -1,616 +1,296 @@
-<!DOCTYPE html>
-<html lang="pt-BR" class="scroll-smooth">
+<!doctype html>
+<html lang="pt-BR">
 <head>
-    <!-- ==========================================
-         SEO, MICRODADOS E CONFIGURAÇÃO AVANÇADA
-         ========================================== -->
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta name="robots" content="index, follow, max-image-preview:large, max-snippet:-1, max-video-preview:-1">
-    <meta name="author" content="Caseirinhos do Ju - Anderson Júnior">
-    <meta name="description" content="Pães caseiros fofinhos, biscoitos amanteigados premium, cookies artesanais e casadinhos tradicionais em Espírito Santo. Fabricação artesanal sob encomenda desde 2024. Sabor de verdade direto no seu WhatsApp!">
-    <meta name="keywords" content="pão caseiro, biscoito amanteigado, casadinho, confeitaria artesanal, encomendar pão, Caseirinhos do Ju, Anderson Júnior, padaria artesanal ES, doces caseiros, quitutes artesanais">
-    
-    <!-- Open Graph (Facebook / WhatsApp / Instagram) -->
-    <meta property="og:type" content="website">
-    <meta property="og:locale" content="pt_BR">
-    <meta property="og:url" content="https://caseirinhosdoju.com.br/">
-    <meta property="og:title" content="Caseirinhos do Ju | Sabores Artesanais Sob Encomenda">
-    <meta property="og:description" content="Pães caseiros fofinhos, biscoitos amanteigados e casadinhos artesanais. Sabor de verdade direto no seu WhatsApp.">
-    <meta property="og:image" content="https://images.unsplash.com/photo-1509440159596-0249088772ff?auto=format&fit=crop&w=1200&q=80">
-    <meta property="og:image:width" content="1200">
-    <meta property="og:image:height" content="630">
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
+  <meta name="theme-color" content="#6a2b12">
+  <meta name="color-scheme" content="light">
 
-    <!-- Twitter Card -->
-    <meta name="twitter:card" content="summary_large_image">
-    <meta name="twitter:title" content="Caseirinhos do Ju | Sabores Artesanais">
-    <meta name="twitter:description" content="Encomende pães caseiros e biscoitos amanteigados que derretem na boca feitos pelo Junin.">
-    <meta name="twitter:image" content="https://images.unsplash.com/photo-1509440159596-0249088772ff?auto=format&fit=crop&w=1200&q=80">
+  <title>Caseirinhos do Ju | Pães, Biscoitos, Casadinhos e Esfirras</title>
+  <meta name="description" content="Cardápio online do Caseirinhos do Ju: pães, biscoitos amanteigados, casadinhos, combos de esfirras e Coca-Cola 1,5L. Monte seu pedido e finalize pelo WhatsApp.">
+  <meta name="robots" content="index,follow,max-image-preview:large">
+  <meta name="author" content="Caseirinhos do Ju">
+  <meta name="format-detection" content="telephone=no">
+  <meta name="referrer" content="strict-origin-when-cross-origin">
 
-    <!-- Favicon -->
-    <link rel="icon" type="image/png" href="https://images.unsplash.com/photo-1590080875515-8a3a8dc5735e?auto=format&fit=crop&w=32&q=80">
+  <meta property="og:type" content="website">
+  <meta property="og:locale" content="pt_BR">
+  <meta property="og:site_name" content="Caseirinhos do Ju">
+  <meta property="og:title" content="Caseirinhos do Ju | Feitos com carinho e sabor de casa">
+  <meta property="og:description" content="Escolha seus Caseirinhos, monte o pedido e envie tudo organizado pelo WhatsApp.">
+  <meta property="og:image" content="assets/images/og-caseirinhos.jpg">
+  <meta property="og:image:width" content="1200">
+  <meta property="og:image:height" content="630">
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:title" content="Caseirinhos do Ju">
+  <meta name="twitter:description" content="Pães & Biscoitos • feitos com carinho e sabor de casa.">
+  <meta name="twitter:image" content="assets/images/og-caseirinhos.jpg">
 
-    <title>Caseirinhos do Ju | Sabor Artesanal Desde 2024</title>
+  <link rel="canonical" href="./">
+  <link rel="icon" type="image/png" sizes="32x32" href="assets/icons/icon-32.png">
+  <link rel="apple-touch-icon" href="assets/icons/icon-180.png">
+  <link rel="manifest" href="manifest.webmanifest">
+  <link rel="preload" href="assets/images/logo.webp" as="image" type="image/webp" fetchpriority="high">
+  <link rel="preload" href="assets/images/coco-chocolate.webp" as="image" type="image/webp" fetchpriority="high">
+  <link rel="stylesheet" href="assets/css/style.css">
 
-    <!-- Tailwind CSS & Plugins -->
-    <script src="https://cdn.tailwindcss.com"></script>
-    
-    <!-- Google Fonts Preconnect & Preload -->
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@300;400;500;600;700&family=Playfair+Display:ital,wght@0,400;0,500;0,600;0,700;1,400&display=swap" rel="stylesheet">
-    
-    <!-- Configuração de Temas Personalizados Tailwind -->
-    <script>
-        tailwind.config = {
-            theme: {
-                extend: {
-                    colors: {
-                        'cozy-cream': '#FDFBF7',
-                        'cozy-sand': '#F4EFE6',
-                        'cozy-tan': '#EADCC9',
-                        'brand-gold': '#C5925E',
-                        'brand-brown': '#2E1F16',
-                        'brand-accent': '#E76F51',
-                        'whatsapp-green': '#25D366'
-                    },
-                    fontFamily: {
-                        sans: ['Plus Jakarta Sans', 'sans-serif'],
-                        serif: ['Playfair Display', 'serif'],
-                    },
-                    boxShadow: {
-                        'premium': '0 20px 40px -15px rgba(46, 31, 22, 0.08)',
-                        'floating': '0 15px 35px -5px rgba(46, 31, 22, 0.15)',
-                    }
-                }
-            }
-        }
-    </script>
-
-    <!-- ==========================================
-         FOLHA DE ESTILOS AVANÇADA (UI/UX & ANIMATION)
-         ========================================== -->
-    <style>
-        /* Efeito de Vidro Ultra-Fino (Blur Nativo) */
-        .glass-nav {
-            background: rgba(253, 251, 247, 0.8);
-            backdrop-filter: blur(20px);
-            -webkit-backdrop-filter: blur(20px);
-        }
-
-        /* Curvas de transição customizadas */
-        .premium-transition {
-            transition: all 0.5s cubic-bezier(0.16, 1, 0.3, 1);
-        }
-
-        .product-card {
-            transition: transform 0.5s cubic-bezier(0.16, 1, 0.3, 1), box-shadow 0.5s cubic-bezier(0.16, 1, 0.3, 1);
-        }
-
-        .product-card:hover {
-            transform: translateY(-8px);
-            box-shadow: 0 30px 45px -12px rgba(46, 31, 22, 0.14);
-        }
-
-        .product-card:hover .product-img {
-            transform: scale(1.06);
-        }
-
-        /* Custom Scrollbar para a Cesta Dinâmica */
-        .custom-scrollbar::-webkit-scrollbar {
-            width: 5px;
-        }
-        .custom-scrollbar::-webkit-scrollbar-track {
-            background: transparent;
-        }
-        .custom-scrollbar::-webkit-scrollbar-thumb {
-            background-color: #C5925E;
-            border-radius: 20px;
-        }
-
-        /* Animação para Feedbacks Visuais */
-        @keyframes toastIn {
-            from { transform: translate(-50%, 40px); opacity: 0; }
-            to { transform: translate(-50%, 0); opacity: 1; }
-        }
-        .animate-toast {
-            animation: toastIn 0.35s cubic-bezier(0.16, 1, 0.3, 1) forwards;
-        }
-
-        /* Ajustes extras para quebra de texto longa no carrinho */
-        .truncate-2-lines {
-            display: -webkit-box;
-            -webkit-line-clamp: 2;
-            -webkit-box-orient: vertical;
-            overflow: hidden;
-        }
-    </style>
-
-    <!-- JSON-LD Structured Data (SEO Otimizado para Negócios Locais) -->
-    <script type="application/ld+json">
-    {
-      "@context": "https://schema.org",
-      "@type": "Bakery",
-      "name": "Caseirinhos do Ju",
-      "image": "https://images.unsplash.com/photo-1509440159596-0249088772ff?auto=format&fit=crop&w=800&q=80",
-      "telephone": "+55-27-99651-1588",
-      "url": "https://caseirinhosdoju.com.br",
-      "priceRange": "$$",
-      "servesCuisine": ["Pães Artesanais", "Biscoitos Caseiros", "Cookies", "Casadinhos"],
-      "foundingDate": "2024",
-      "founder": {
-        "@type": "Person",
-        "name": "Anderson Júnior"
-      },
-      "description": "Negócio artesanal de panificação e confeitaria afetiva no Espírito Santo, produzindo quitutes fofinhos, crocantes e livres de conservantes artificiais.",
-      "address": {
-        "@type": "PostalAddress",
-        "addressRegion": "ES",
-        "addressCountry": "BR"
-      }
-    }
-    </script>
+  <script type="application/ld+json">
+  {
+    "@context":"https://schema.org",
+    "@type":"Organization",
+    "name":"Caseirinhos do Ju",
+    "description":"Pães, biscoitos, casadinhos e esfirras artesanais.",
+    "telephone":"+55 27 99651-1588",
+    "sameAs":["https://www.instagram.com/caseirinho.doju/"],
+    "logo":"assets/images/logo.webp"
+  }
+  </script>
 </head>
-<body class="bg-cozy-cream text-brand-brown font-sans antialiased selection:bg-brand-gold/20">
+<body>
+  <noscript><div class="noscript">Para montar o carrinho e finalizar pelo WhatsApp, ative o JavaScript do navegador.</div></noscript>
+  <a class="skip-link" href="#cardapio">Ir para o cardápio</a>
+  <div class="scroll-progress" aria-hidden="true"><span id="scrollProgress"></span></div>
 
-    <!-- ⏳ TOPO INFORMATIVO DINÂMICO (Gatilhos de Escassez e Prova Social) -->
-    <div role="status" class="bg-brand-brown text-cozy-cream text-[10px] md:text-xs py-2.5 px-4 text-center font-semibold tracking-widest uppercase relative z-50">
-        ⚡ Fornadas Limitadas esta semana. Garanta seus produtos artesanais antes do próximo fechamento de ciclo.
+  <div class="announcement" role="note">
+    <div class="shell announcement__inner">
+      <span><b>Caseirinhos do Ju</b> · Pães, biscoitos, casadinhos e esfirras</span>
+      <a href="https://wa.me/5527996511588?text=Ol%C3%A1%21%20Vim%20pelo%20site%20do%20Caseirinhos%20do%20Ju." target="_blank" rel="noopener">WhatsApp (27) 99651-1588</a>
+    </div>
+  </div>
+
+  <header class="site-header" id="inicio">
+    <div class="shell header__inner">
+      <a class="brand" href="#inicio" aria-label="Caseirinhos do Ju - início">
+        <img src="assets/images/logo.webp" alt="Logomarca Caseirinhos do Ju" width="72" height="72" fetchpriority="high">
+        <span class="brand__text"><strong>Caseirinhos do Ju</strong><small>Pães & Biscoitos</small></span>
+      </a>
+
+      <nav class="desktop-nav" aria-label="Navegação principal">
+        <a href="#combos">Combos</a>
+        <a href="#sabores">Esfirras</a>
+        <a href="#cardapio">Cardápio</a>
+        <a href="#como-pedir">Como pedir</a>
+        <a href="#marca">A marca</a>
+      </nav>
+
+      <div class="header__actions">
+        <a class="header-whatsapp" href="https://wa.me/5527996511588" target="_blank" rel="noopener" aria-label="Abrir WhatsApp">WhatsApp</a>
+        <button class="cart-chip" id="headerCartButton" type="button" aria-label="Abrir seu pedido">
+          <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M3 4h2l2.2 10.2a2 2 0 0 0 2 1.6h7.6a2 2 0 0 0 2-1.5L20 8H7M10 20h.01M17 20h.01"/></svg>
+          <span>Pedido</span><b id="headerCartCount">0</b>
+        </button>
+        <button class="menu-toggle" id="menuToggle" type="button" aria-expanded="false" aria-controls="mobileNav" aria-label="Abrir menu"><span></span><span></span><span></span></button>
+      </div>
     </div>
 
-    <!-- 🏷️ CABEÇALHO FLUTUANTE ADAPTÁVEL -->
-    <header class="fixed top-6 left-1/2 -translate-x-1/2 w-[92%] max-w-6xl h-20 glass-nav z-40 rounded-2xl border border-brand-brown/5 shadow-premium flex items-center justify-between px-6 md:px-12 premium-transition" id="main-header">
-        <a href="#inicio" class="font-serif text-xl md:text-2xl font-bold tracking-tight text-brand-brown" aria-label="Página Inicial do Caseirinhos do Ju">
-            🍪 Caseirinhos<span class="text-brand-gold">.Ju</span>
-        </a>
-        
-        <!-- Navegação Desktop Otimizada -->
-        <nav class="hidden md:flex items-center space-x-10 text-sm font-medium tracking-wide" aria-label="Menu de navegação principal">
-            <a href="#inicio" class="text-brand-brown/70 hover:text-brand-brown premium-transition relative after:content-[''] after:absolute after:bottom-0 after:left-0 after:w-0 after:h-0.5 after:bg-brand-gold hover:after:w-full after:transition-all">Início</a>
-            <a href="#quemsomos" class="text-brand-brown/70 hover:text-brand-brown premium-transition relative after:content-[''] after:absolute after:bottom-0 after:left-0 after:w-0 after:h-0.5 after:bg-brand-gold hover:after:w-full after:transition-all">Nossa História</a>
-            <a href="#catalogo" class="text-brand-brown/70 hover:text-brand-brown premium-transition relative after:content-[''] after:absolute after:bottom-0 after:left-0 after:w-0 after:h-0.5 after:bg-brand-gold hover:after:w-full after:transition-all">O Catálogo</a>
-            <a href="#depoimentos" class="text-brand-brown/70 hover:text-brand-brown premium-transition relative after:content-[''] after:absolute after:bottom-0 after:left-0 after:w-0 after:h-0.5 after:bg-brand-gold hover:after:w-full after:transition-all">Feedbacks</a>
-        </nav>
+    <nav class="mobile-nav" id="mobileNav" aria-label="Menu mobile" hidden>
+      <a href="#combos">Combos</a>
+      <a href="#sabores">Esfirras</a>
+      <a href="#cardapio">Cardápio</a>
+      <a href="#como-pedir">Como pedir</a>
+      <a href="#marca">A marca</a>
+      <a href="#contato">Contato</a>
+    </nav>
+  </header>
 
-        <div>
-            <a href="#catalogo" class="bg-brand-brown text-cozy-cream hover:bg-brand-gold text-xs font-bold px-6 py-3.5 rounded-xl premium-transition tracking-wider uppercase shadow-sm inline-block">
-                Montar Pedido
-            </a>
+  <main>
+    <section class="hero" aria-labelledby="heroTitle">
+      <div class="hero__glow" aria-hidden="true"></div>
+      <div class="shell hero__grid">
+        <div class="hero__copy reveal">
+          <span class="eyebrow">FEITOS COM CARINHO · SABOR DE CASA</span>
+          <h1 id="heroTitle">Seu pedido caseiro, <em>do jeitinho que dá vontade.</em></h1>
+          <p>Escolha pães, biscoitos, casadinhos, esfirras e bebida em um catálogo rápido, organizado e feito para comprar pelo celular.</p>
+          <div class="hero__actions">
+            <a class="btn btn--primary" href="#cardapio">Ver cardápio <span aria-hidden="true">→</span></a>
+            <a class="btn btn--secondary" href="#combos">Ver combos</a>
+          </div>
+          <div class="hero__trust" aria-label="Diferenciais">
+            <span><i>✓</i> Produção artesanal</span>
+            <span><i>✓</i> Pedido salvo no celular</span>
+            <span><i>✓</i> Finalização pelo WhatsApp</span>
+          </div>
         </div>
-    </header>
 
-    <main>
-        <!-- 🏠 HERO SECTION -->
-        <section id="inicio" class="relative pt-44 pb-20 md:pt-52 md:pb-36 px-4 min-h-[95vh] flex items-center overflow-hidden">
-            <div class="max-w-6xl mx-auto grid lg:grid-cols-12 gap-12 items-center w-full relative z-10">
-                
-                <div class="lg:col-span-7 space-y-8 text-center lg:text-left">
-                    <div class="inline-flex items-center gap-2.5 bg-brand-gold/10 text-brand-gold font-bold text-xs px-4 py-2 rounded-full uppercase tracking-widest">
-                        <span class="w-2 h-2 rounded-full bg-brand-gold animate-ping"></span> Desde 2024 Espalhando Afeto
-                    </div>
-                    <h1 class="font-serif text-4xl sm:text-5xl lg:text-6xl font-medium leading-[1.15] tracking-tight">
-                        O verdadeiro sabor de casa, <br>
-                        <span class="italic font-normal text-brand-gold">feito sob medida</span> para você.
-                    </h1>
-                    <p class="text-base sm:text-lg text-brand-brown/70 max-w-xl mx-auto lg:mx-0 leading-relaxed font-light">
-                        Sem conservantes industriais, sem aditivos químicos e sem pressa. Pães artesanais fofinhos e biscoitos premium assados individualmente com carinho genuíno de família.
-                    </p>
-                    
-                    <div class="flex flex-col sm:flex-row items-center justify-center lg:justify-start gap-4 pt-2">
-                        <a href="#catalogo" class="w-full sm:w-auto bg-brand-accent hover:bg-brand-accent/90 text-cozy-cream font-bold text-xs tracking-widest uppercase px-8 py-4.5 rounded-xl shadow-xl shadow-brand-accent/10 transition-all duration-300 text-center">
-                            🛒 Ver Menu & Fazer Pedido
-                        </a>
-                        <a href="#quemsomos" class="w-full sm:w-auto border border-brand-brown/10 hover:border-brand-brown/30 bg-white/40 text-brand-brown font-semibold text-xs tracking-wider uppercase px-8 py-4.5 rounded-xl premium-transition text-center">
-                            Conhecer o Ju
-                        </a>
-                    </div>
-
-                    <div class="flex items-center justify-center lg:justify-start gap-8 pt-6 border-t border-brand-brown/5">
-                        <div>
-                            <p class="font-serif text-2xl font-bold text-brand-brown">2 Anos</p>
-                            <p class="text-[11px] text-brand-brown/50 uppercase tracking-widest mt-0.5">Tradição e afeto</p>
-                        </div>
-                        <div class="w-px h-8 bg-brand-brown/10"></div>
-                        <div>
-                            <p class="font-serif text-2xl font-bold text-brand-brown">100%</p>
-                            <p class="text-[11px] text-brand-brown/50 uppercase tracking-widest mt-0.5">Manufaturado</p>
-                        </div>
-                        <div class="w-px h-8 bg-brand-brown/10"></div>
-                        <div>
-                            <p class="font-serif text-2xl font-bold text-brand-brown">+1k</p>
-                            <p class="text-[11px] text-brand-brown/50 uppercase tracking-widest mt-0.5">Fornadas entregues</p>
-                        </div>
-                    </div>
-                </div>
-
-                <!-- Bento Grid Elegante de Mídia -->
-                <div class="lg:col-span-5 relative hidden lg:grid grid-cols-2 gap-4">
-                    <div class="space-y-4">
-                        <div class="rounded-2xl overflow-hidden shadow-md aspect-[3/4] border border-white">
-                            <img src="https://images.unsplash.com/photo-1509440159596-0249088772ff?auto=format&fit=crop&w=400&q=80" alt="Pão caseiro crocante saindo do forno" class="w-full h-full object-cover">
-                        </div>
-                        <div class="rounded-2xl overflow-hidden shadow-md aspect-square bg-cozy-tan">
-                            <img src="https://images.unsplash.com/photo-1558961363-fa8fdf82db35?auto=format&fit=crop&w=400&q=80" alt="Biscoito amanteigado de chocolate caseiro" class="w-full h-full object-cover">
-                        </div>
-                    </div>
-                    <div class="space-y-4 pt-8">
-                        <div class="rounded-2xl overflow-hidden shadow-md aspect-square bg-cozy-sand">
-                            <img src="https://images.unsplash.com/photo-1590080875515-8a3a8dc5735e?auto=format&fit=crop&w=400&q=80" alt="Casadinho de goiabada artesanal" class="w-full h-full object-cover">
-                        </div>
-                        <div class="rounded-2xl overflow-hidden shadow-md aspect-[3/4] border border-white">
-                            <img src="https://images.unsplash.com/photo-1549931319-a545dcf3bc73?auto=format&fit=crop&w=400&q=80" alt="Massa crua de pão artesanal sendo preparada" class="w-full h-full object-cover">
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </section>
-
-        <!-- 🌟 SEÇÃO DIFERENCIAIS -->
-        <section class="py-20 px-4 bg-cozy-sand/40 border-y border-brand-brown/[0.02]">
-            <div class="max-w-6xl mx-auto grid md:grid-cols-3 gap-8">
-                <div class="bg-cozy-cream p-8 rounded-2xl border border-brand-brown/[0.02] shadow-sm space-y-4">
-                    <div class="w-10 h-10 rounded-xl bg-brand-gold/10 text-brand-gold flex items-center justify-center text-lg font-bold" aria-hidden="true">🧡</div>
-                    <h2 class="font-serif text-xl font-bold">Produção 100% Manual</h2>
-                    <p class="text-brand-brown/70 text-sm leading-relaxed font-light">Cada fornada é batida, modelada e cuidada individualmente, o que preserva a textura leve que derrete na boca.</p>
-                </div>
-                <div class="bg-cozy-cream p-8 rounded-2xl border border-brand-brown/[0.02] shadow-sm space-y-4">
-                    <div class="w-10 h-10 rounded-xl bg-brand-gold/10 text-brand-gold flex items-center justify-center text-lg font-bold" aria-hidden="true">🚚</div>
-                    <h2 class="font-serif text-xl font-bold">Fresco de Verdade</h2>
-                    <p class="text-brand-brown/70 text-sm leading-relaxed font-light">Eliminamos estoques antigos. Suas delícias entram em produção de acordo com a sua data de agendamento.</p>
-                </div>
-                <div class="bg-cozy-cream p-8 rounded-2xl border border-brand-brown/[0.02] shadow-sm space-y-4">
-                    <div class="w-10 h-10 rounded-xl bg-brand-gold/10 text-brand-gold flex items-center justify-center text-lg font-bold" aria-hidden="true">📲</div>
-                    <h2 class="font-serif text-xl font-bold">Sem Linhas de Robôs</h2>
-                    <p class="text-brand-brown/70 text-sm leading-relaxed font-light">Aqui você conversa diretamente com as pessoas por trás da marca, combinando detalhes e personalizações de modo prático.</p>
-                </div>
-            </div>
-        </section>
-
-        <!-- 👩‍🍳 QUEM SOMOS -->
-        <section id="quemsomos" class="py-24 px-4 bg-cozy-cream">
-            <div class="max-w-5xl mx-auto grid md:grid-cols-12 gap-12 items-center">
-                <div class="md:col-span-5 relative">
-                    <div class="rounded-2xl overflow-hidden shadow-lg aspect-[4/5] bg-cozy-tan">
-                        <img src="https://images.unsplash.com/photo-1556910103-1c02745aae4d?auto=format&fit=crop&w=600&q=80" alt="Anderson Júnior na cozinha preparando receitas afetivas" class="w-full h-full object-cover">
-                    </div>
-                </div>
-                <div class="md:col-span-7 space-y-6">
-                    <span class="text-xs font-bold text-brand-gold uppercase tracking-widest block">Nossa Essência</span>
-                    <h2 class="font-serif text-3xl sm:text-4xl font-semibold tracking-tight">Do forno da nossa família direto para a sua mesa</h2>
-                    <div class="text-brand-brown/80 text-sm sm:text-base leading-relaxed space-y-4 font-light">
-                        <p>Meu nome é <strong class="font-medium text-brand-brown">Anderson Júnior (Junin)</strong> e, em meados de 2024, fundei o Caseirinhos do Ju motivado pelo desejo de reviver os aromas das tardes com café fresco que marcaram minha infância.</p>
-                        <p>O que começou com pequenas fornadas despretensiosas para presentear amigos e vizinhos próximos tomou corpo à medida que os elogios se multiplicavam. O segredo? A paciência com o tempo de fermentação e a busca obsessiva por ingredientes de altíssima qualidade.</p>
-                        <p>Atualmente, nossas fornadas atendem pedidos corporativos, reuniões familiares e o desejado café da tarde semanal de dezenas de clientes fidelizados por todo o estado do Espírito Santo.</p>
-                        <p class="font-serif italic text-xl text-brand-gold pt-2">"Nosso compromisso não é apenas alimentar, mas criar pontes de nostalgia através do paladar."</p>
-                    </div>
-                </div>
-            </div>
-        </section>
-
-        <!-- 🛒 CATALOGO & CESTA DE COMPRAS INTERATIVA -->
-        <section id="catalogo" class="py-24 px-4 bg-cozy-sand/50 border-t border-brand-brown/[0.02]">
-            <div class="max-w-6xl mx-auto">
-                <div class="text-center max-w-2xl mx-auto mb-16 space-y-4">
-                    <span class="text-xs font-bold text-brand-gold uppercase tracking-widest block">Cardápio Interativo</span>
-                    <h2 class="font-serif text-3xl sm:text-4xl font-semibold tracking-tight">Monte Sua Cesta Personalizada</h2>
-                    <p class="text-sm text-brand-brown/60 font-light">Explore nossa seleção abaixo. Conforme você clica, seu pedido é processado e estruturado automaticamente para o envio via WhatsApp.</p>
-                </div>
-
-                <div class="grid lg:grid-cols-12 gap-8 items-start">
-                    <!-- Cards de Produtos (Gargalo de Volume Exclusivo) -->
-                    <div class="lg:col-span-8 grid sm:grid-cols-2 gap-6">
-                        
-                        <!-- Produto 1 -->
-                        <div class="product-card bg-cozy-cream rounded-2xl overflow-hidden border border-brand-brown/[0.03] shadow-sm flex flex-col justify-between">
-                            <div class="overflow-hidden h-48 bg-cozy-tan/30 relative">
-                                <img src="https://images.unsplash.com/photo-1590080875515-8a3a8dc5735e?auto=format&fit=crop&w=500&q=80" alt="Casadinhos tradicionais de Goiabada Cremosa" class="product-img w-full h-full object-cover premium-transition" loading="lazy">
-                            </div>
-                            <div class="p-6 space-y-4 flex-1 flex flex-col justify-between">
-                                <div>
-                                    <h3 class="font-serif text-lg font-bold text-brand-brown">Casadinho de Goiabada</h3>
-                                    <p class="text-xs text-brand-brown/60 mt-1 font-light">Massa amanteigada ultra fina que derrete imediatamente na boca recheada com pedaços cremosos de goiabada cascão selecionada.</p>
-                                </div>
-                                <button onclick="CartSystem.addItem('Casadinho de Goiabada')" class="w-full bg-brand-brown hover:bg-brand-gold text-cozy-cream text-xs font-bold py-3.5 px-4 rounded-xl premium-transition uppercase tracking-wider">
-                                    ➕ Adicionar à Cesta
-                                </button>
-                            </div>
-                        </div>
-
-                        <!-- Produto 2 -->
-                        <div class="product-card bg-cozy-cream rounded-2xl overflow-hidden border border-brand-brown/[0.03] shadow-sm flex flex-col justify-between">
-                            <div class="overflow-hidden h-48 bg-cozy-tan/30 relative">
-                                <img src="https://images.unsplash.com/photo-1558961363-fa8fdf82db35?auto=format&fit=crop&w=500&q=80" alt="Biscoitos Amanteigados Finos sabor Coco com Chocolate" class="product-img w-full h-full object-cover premium-transition" loading="lazy">
-                            </div>
-                            <div class="p-6 space-y-4 flex-1 flex flex-col justify-between">
-                                <div>
-                                    <h3 class="font-serif text-lg font-bold text-brand-brown">Amanteigado de Coco com Chocolate</h3>
-                                    <p class="text-xs text-brand-brown/60 mt-1 font-light">Uma simbiose perfeita entre a crocância do coco ralado in natura tostado com generosos fios de chocolate nobre meio amargo.</p>
-                                </div>
-                                <button onclick="CartSystem.addItem('Amanteigado de Coco com Chocolate')" class="w-full bg-brand-brown hover:bg-brand-gold text-cozy-cream text-xs font-bold py-3.5 px-4 rounded-xl premium-transition uppercase tracking-wider">
-                                    ➕ Adicionar à Cesta
-                                </button>
-                            </div>
-                        </div>
-
-                        <!-- Produto 3 -->
-                        <div class="product-card bg-cozy-cream rounded-2xl overflow-hidden border border-brand-brown/[0.03] shadow-sm flex flex-col justify-between">
-                            <div class="overflow-hidden h-48 bg-cozy-tan/30 relative">
-                                <img src="https://images.unsplash.com/photo-1608686207856-001b95cf60ca?auto=format&fit=crop&w=500&q=80" alt="Biscoito amanteigado de goiabinha artesanal" class="product-img w-full h-full object-cover premium-transition" loading="lazy">
-                            </div>
-                            <div class="p-6 space-y-4 flex-1 flex flex-col justify-between">
-                                <div>
-                                    <h3 class="font-serif text-lg font-bold text-brand-brown">Amanteigado de Goiabinha</h3>
-                                    <p class="text-xs text-brand-brown/60 mt-1 font-light">Formato clássico e nostálgico. Massa super leve com centro em textura de caramelo de goiaba maleável.</p>
-                                </div>
-                                <button onclick="CartSystem.addItem('Amanteigado de Goiabinha')" class="w-full bg-brand-brown hover:bg-brand-gold text-cozy-cream text-xs font-bold py-3.5 px-4 rounded-xl premium-transition uppercase tracking-wider">
-                                    ➕ Adicionar à Cesta
-                                </button>
-                            </div>
-                        </div>
-
-                        <!-- Produto 4 -->
-                        <div class="product-card bg-cozy-cream rounded-2xl overflow-hidden border border-brand-brown/[0.03] shadow-sm flex flex-col justify-between">
-                            <div class="overflow-hidden h-48 bg-cozy-tan/30 relative">
-                                <img src="https://images.unsplash.com/photo-1549931319-a545dcf3bc73?auto=format&fit=crop&w=500&q=80" alt="Pães caseiros fofos artesanais" class="product-img w-full h-full object-cover premium-transition" loading="lazy">
-                            </div>
-                            <div class="p-6 space-y-4 flex-1 flex flex-col justify-between">
-                                <div>
-                                    <h3 class="font-serif text-lg font-bold text-brand-brown">Pão Caseiro Tradicional da Vovó</h3>
-                                    <p class="text-xs text-brand-brown/60 mt-1 font-light">Casca macia dourada e miolo altamente aerado. Desenvolvido através de processo de longa fermentação natural biológica.</p>
-                                </div>
-                                <button onclick="CartSystem.addItem('Pão Caseiro Tradicional')" class="w-full bg-brand-brown hover:bg-brand-gold text-cozy-cream text-xs font-bold py-3.5 px-4 rounded-xl premium-transition uppercase tracking-wider">
-                                    ➕ Adicionar à Cesta
-                                </button>
-                            </div>
-                        </div>
-
-                        <!-- Produto 5 -->
-                        <div class="product-card bg-cozy-cream rounded-2xl overflow-hidden border border-brand-brown/[0.03] shadow-sm flex flex-col justify-between">
-                            <div class="overflow-hidden h-48 bg-cozy-tan/30 relative">
-                                <img src="https://images.unsplash.com/photo-1499636136210-6f4ee915583e?auto=format&fit=crop&w=500&q=80" alt="Cookies de gotas de chocolate artesanais" class="product-img w-full h-full object-cover premium-transition" loading="lazy">
-                            </div>
-                            <div class="p-6 space-y-4 flex-1 flex flex-col justify-between">
-                                <div>
-                                    <h3 class="font-serif text-lg font-bold text-brand-brown">Cookie Americano com Gotas Nobres</h3>
-                                    <p class="text-xs text-brand-brown/60 mt-1 font-light">Borda incrivelmente crocante e centro denso e macio, recheado com gotas de chocolate belga 50% cacau.</p>
-                                </div>
-                                <button onclick="CartSystem.addItem('Cookie Americano Nobre')" class="w-full bg-brand-brown hover:bg-brand-gold text-cozy-cream text-xs font-bold py-3.5 px-4 rounded-xl premium-transition uppercase tracking-wider">
-                                    ➕ Adicionar à Cesta
-                                </button>
-                            </div>
-                        </div>
-
-                        <!-- Produto 6 -->
-                        <div class="product-card bg-cozy-cream rounded-2xl overflow-hidden border border-brand-brown/[0.03] shadow-sm flex flex-col justify-between">
-                            <div class="overflow-hidden h-48 bg-cozy-tan/30 relative">
-                                <img src="https://images.unsplash.com/photo-1532246420286-127bcd803104?auto=format&fit=crop&w=500&q=80" alt="Broa de Fubá cremosa caseira" class="product-img w-full h-full object-cover premium-transition" loading="lazy">
-                            </div>
-                            <div class="p-6 space-y-4 flex-1 flex flex-col justify-between">
-                                <div>
-                                    <h3 class="font-serif text-lg font-bold text-brand-brown">Broa de Fubá com Erva-Doce</h3>
-                                    <p class="text-xs text-brand-brown/60 mt-1 font-light">Receita centenária de interior, textura densa e úmida com perfume suave de sementes frescas de erva-doce.</p>
-                                </div>
-                                <button onclick="CartSystem.addItem('Broa de Fubá com Erva-Doce')" class="w-full bg-brand-brown hover:bg-brand-gold text-cozy-cream text-xs font-bold py-3.5 px-4 rounded-xl premium-transition uppercase tracking-wider">
-                                    ➕ Adicionar à Cesta
-                                </button>
-                            </div>
-                        </div>
-
-                    </div>
-
-                    <!-- Sidebar Fixa da Cesta de Compras -->
-                    <div class="lg:col-span-4 bg-cozy-cream p-6 rounded-2xl border border-brand-brown/10 shadow-premium sticky top-32 space-y-6" id="shopping-cart">
-                        <div class="flex items-center justify-between border-b border-brand-brown/5 pb-4">
-                            <h3 class="font-serif text-lg font-bold flex items-center gap-2">
-                                🧺 Minha Cesta <span id="cart-counter" class="bg-brand-gold text-cozy-cream text-xs px-2 py-0.5 rounded-full font-sans font-bold">0</span>
-                            </h3>
-                            <button onclick="CartSystem.clearAll()" class="text-xs text-brand-accent font-medium hover:opacity-80 premium-transition">Limpar Tudo</button>
-                        </div>
-
-                        <!-- Lista Dinâmica Injetada -->
-                        <div id="cart-list" class="space-y-4 max-h-[280px] overflow-y-auto custom-scrollbar pr-1 text-xs text-brand-brown/40 italic py-6 text-center font-light">
-                            Nenhum item selecionado. Comece adicionando seus preferidos ao lado!
-                        </div>
-
-                        <div class="pt-2">
-                            <button id="cart-submit-btn" disabled onclick="CartSystem.checkout()" class="w-full bg-whatsapp-green hover:bg-whatsapp-green/90 disabled:bg-gray-200 disabled:text-gray-400 disabled:cursor-not-allowed text-white font-bold text-xs py-4 px-6 rounded-xl shadow-lg shadow-whatsapp-green/10 premium-transition text-center flex items-center justify-center gap-2 tracking-widest uppercase">
-                                Enviar Lista Pronta via WhatsApp
-                            </button>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </section>
-
-        <!-- 💬 SEÇÃO DE PROVA SOCIAL E DEPOIMENTOS -->
-        <section id="depoimentos" class="py-24 px-4 bg-cozy-cream">
-            <div class="max-w-6xl mx-auto">
-                <div class="text-center max-w-xl mx-auto mb-16 space-y-4">
-                    <span class="text-xs font-bold text-brand-gold uppercase tracking-widest block">Feedbacks Reais</span>
-                    <h2 class="font-serif text-3xl font-semibold tracking-tight">O que dizem sobre nossas fornadas</h2>
-                    <p class="text-xs text-brand-brown/60 font-light">A opinião dos nossos clientes frequentes é nosso maior selo de garantia e qualidade.</p>
-                </div>
-
-                <div class="grid md:grid-cols-3 gap-8">
-                    <div class="border border-brand-brown/5 p-8 rounded-2xl bg-cozy-sand/20 space-y-4">
-                        <div class="flex text-brand-gold text-sm">★★★★★</div>
-                        <p class="text-xs sm:text-sm text-brand-brown/80 font-light italic leading-relaxed">"O casadinho é inexplicável, simplesmente derrete na boca de um jeito que nunca vi em marcas de supermercado. Dá para notar que é feito de forma individual."</p>
-                        <p class="text-xs font-bold text-brand-brown tracking-wide uppercase pt-2">— Mariana S., Vitória/ES</p>
-                    </div>
-                    <div class="border border-brand-brown/5 p-8 rounded-2xl bg-cozy-sand/20 space-y-4">
-                        <div class="flex text-brand-gold text-sm">★★★★★</div>
-                        <p class="text-xs sm:text-sm text-brand-brown/80 font-light italic leading-relaxed">"Encomendei os pães caseiros para um café da manhã corporativo aqui na agência e todo mundo ficou impressionado com o frescor e a leveza da massa. Virei cliente assídua!"</p>
-                        <p class="text-xs font-bold text-brand-brown tracking-wide uppercase pt-2">— Carla F., Vila Velha/ES</p>
-                    </div>
-                    <div class="border border-brand-brown/5 p-8 rounded-2xl bg-cozy-sand/20 space-y-4">
-                        <div class="flex text-brand-gold text-sm">★★★★★</div>
-                        <p class="text-xs sm:text-sm text-brand-brown/80 font-light italic leading-relaxed">"O biscoito amanteigado de coco com chocolate virou item obrigatório nos finais de semana aqui em casa. O atendimento do Junin é super educado e prestativo."</p>
-                        <p class="text-xs font-bold text-brand-brown tracking-wide uppercase pt-2">— Roberto M., Serra/ES</p>
-                    </div>
-                </div>
-            </div>
-        </section>
-
-        <!-- 📢 CONVERSÃO DE ENCOMENDAS DIRETAS -->
-        <section class="py-24 px-4 bg-brand-brown text-cozy-cream text-center relative overflow-hidden">
-            <div class="max-w-2xl mx-auto space-y-6 relative z-10">
-                <h2 class="font-serif text-3xl sm:text-4xl font-semibold tracking-tight">Deseja um pedido especial fora do cardápio? 😋</h2>
-                <p class="text-sm sm:text-base text-cozy-sand/70 max-w-sm mx-auto font-light leading-relaxed">
-                    Clique abaixo e entre em contato direto com a gente para volumes customizados, eventos ou embalagens de presente.
-                </p>
-                <div class="pt-4">
-                    <a href="https://wa.me/5527996511588?text=Fala%20Junin%2C%20gostaria%20de%20solicitar%20um%20or%C3%A7amento%20personalizado%20para%20evento" 
-                       target="_blank"
-                       class="inline-flex items-center justify-center bg-brand-gold hover:bg-brand-gold/90 text-brand-brown font-bold text-xs tracking-widest uppercase px-10 py-4.5 rounded-xl shadow-xl transition-all duration-300">
-                        Solicitar Orçamento Especial
-                    </a>
-                </div>
-            </div>
-        </section>
-    </main>
-
-    <!-- 👣 RODAPÉ ARQUITETADO -->
-    <footer class="bg-cozy-sand py-14 px-4 text-center text-xs text-brand-brown/60 border-t border-brand-brown/5">
-        <div class="max-w-6xl mx-auto space-y-4">
-            <p class="font-serif text-lg font-bold text-brand-brown">🍪 Caseirinhos do Ju</p>
-            <p class="font-light max-w-md mx-auto leading-relaxed">Sabor autêntico, respeito ao tempo dos ingredientes e manufatura com amor genuíno de família. Entregas programadas no Espírito Santo.</p>
-            <div class="w-12 h-px bg-brand-brown/10 mx-auto my-4"></div>
-            <p class="text-[10px] uppercase tracking-widest opacity-50">&copy; 2026 Caseirinhos do Ju. Todos os direitos reservados. Feito com carinho para nossos clientes.</p>
+        <div class="hero__visual reveal" aria-label="Seleção de produtos Caseirinhos do Ju">
+          <div class="hero__logo-card"><img src="assets/images/logo.webp" alt="Caseirinhos do Ju" width="360" height="360"></div>
+          <figure class="hero-photo hero-photo--main"><img src="assets/images/coco-chocolate.webp" alt="Amanteigados de coco com chocolate" width="1000" height="1000" fetchpriority="high" decoding="async"></figure>
+          <figure class="hero-photo hero-photo--small hero-photo--a"><img src="assets/images/esfirra-carne-cheddar.webp" alt="Esfirras de carne temperada com cheddar" width="720" height="960" decoding="async"></figure>
+          <figure class="hero-photo hero-photo--small hero-photo--b"><img src="assets/images/goiabinha.webp" alt="Amanteigados de goiabinha" width="1000" height="1000" decoding="async"></figure>
+          <span class="hero-sticker">100%<br><strong>artesanal</strong></span>
         </div>
-    </footer>
+      </div>
+    </section>
 
-    <!-- ==========================================
-         BOTÃO FLUTUANTE DO WHATSAPP ATUALIZADO (PREMIUM)
-         ========================================== -->
-    <a href="https://wa.me/5527996511588?text=Fala%20Junin%2C%20vim%20pelo%20site%20e%20quero%20fazer%20uma%20encomenda" 
-       target="_blank" 
-       aria-label="Contatar Anderson Júnior no WhatsApp"
-       class="fixed bottom-6 right-6 z-40 group flex items-center gap-3 bg-brand-brown hover:bg-whatsapp-green text-cozy-cream hover:text-white px-5 py-3.5 rounded-full shadow-xl transition-all duration-300 ease-out hover:-translate-y-1 border border-white/10">
-        
-        <!-- Ícone do WhatsApp Metamórfico (Muda de cor com o hover) -->
-        <svg class="w-5 h-5 fill-current text-whatsapp-green group-hover:text-white transition-colors duration-300" viewBox="0 0 24 24" aria-hidden="true">
-            <path d="M.057 24l1.687-6.163c-1.041-1.804-1.588-3.849-1.587-5.946C.06 5.348 5.397.01 12.008.01c3.202.001 6.212 1.246 8.477 3.513 2.266 2.268 3.507 5.28 3.505 8.484-.004 6.657-5.34 11.997-11.953 11.997-2.005-.001-3.973-.502-5.713-1.457L0 24zm6.59-4.846c1.6.95 3.188 1.449 4.825 1.451 5.436 0 9.86-4.413 9.863-9.864.001-2.641-1.023-5.123-2.883-6.985A9.775 9.775 0 0 0 12.008 1.81C6.574 1.81 2.147 6.22 2.145 11.672c-.001 1.657.444 3.274 1.29 4.698l-.997 3.64 3.73-.977zm11.383-7.85c-.3-.149-1.774-.875-2.046-.974-.272-.1-.471-.149-.669.149-.198.299-.768.974-.941 1.173-.173.199-.347.224-.648.074-.3-.149-1.265-.466-2.41-1.487-.893-.797-1.495-1.782-1.67-2.081-.174-.3-.018-.462.13-.61.135-.133.3-.349.451-.523.149-.174.199-.299.299-.498.1-.199.05-.374-.025-.523-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.501-.669-.51l-.57-.01c-.198 0-.52.074-.792.372s-1.04 1.019-1.04 2.487 1.064 2.885 1.213 3.084c.149.198 2.095 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.774-.726 2.022-1.429.247-.702.247-1.306.173-1.429-.074-.124-.272-.198-.572-.347z"/>
-        </svg>
+    <section class="quick-path" aria-label="Como comprar">
+      <div class="shell quick-path__grid">
+        <div><b>01</b><span><strong>Escolha</strong><small>Veja sabores e tamanhos.</small></span></div>
+        <div><b>02</b><span><strong>Adicione</strong><small>Monte seu pedido no carrinho.</small></span></div>
+        <div><b>03</b><span><strong>Envie</strong><small>Finalize no WhatsApp.</small></span></div>
+      </div>
+    </section>
 
-        <!-- Texto Dinâmico -->
-        <span class="text-xs font-bold uppercase tracking-widest font-sans">
-            Pedir pelo Zap
-        </span>
+    <section class="editorial section" aria-labelledby="editorialTitle">
+      <div class="shell">
+        <div class="section-heading reveal">
+          <span class="kicker">DESTAQUES DA CASA</span>
+          <h2 id="editorialTitle">Os queridinhos para começar seu pedido.</h2>
+          <p>Amanteigados, pães e casadinhos feitos para o café, o lanche e os momentos de compartilhar.</p>
+        </div>
 
-        <!-- Indicador Pulsante de Atendimento Ativo -->
-        <span class="relative flex h-2 w-2">
-            <span class="animate-ping absolute inline-flex h-full w-full rounded-full bg-whatsapp-green opacity-75 group-hover:bg-white"></span>
-            <span class="relative inline-flex rounded-full h-2 w-2 bg-whatsapp-green group-hover:bg-white"></span>
-        </span>
-    </a>
+        <div class="editorial-grid reveal">
+          <article class="editorial-card editorial-card--wide">
+            <img src="assets/images/goiabinha.webp" alt="Amanteigados de goiabinha" width="1000" height="1000" loading="lazy" decoding="async">
+            <div class="editorial-card__overlay"><span>Amanteigados</span><h3>Goiabinha</h3><a href="#cardapio" data-filter="Amanteigados">Ver opções →</a></div>
+          </article>
+          <article class="editorial-card">
+            <img src="assets/images/pao-doce.webp" alt="Pão caseiro doce" width="1000" height="1000" loading="lazy" decoding="async">
+            <div class="editorial-card__overlay"><span>Pães</span><h3>Pão caseiro doce</h3><a href="#cardapio" data-filter="Pães">Ver pães →</a></div>
+          </article>
+          <article class="editorial-card">
+            <img src="assets/images/casadinho.webp" alt="Casadinhos artesanais" width="1000" height="1000" loading="lazy" decoding="async">
+            <div class="editorial-card__overlay"><span>Casadinhos</span><h3>Feitos para compartilhar</h3><a href="#cardapio" data-filter="Casadinhos">Ver casadinhos →</a></div>
+          </article>
+        </div>
+      </div>
+    </section>
 
-    <!-- UI ELEMENT: NOTIFICAÇÃO COMPARTILHADA (TOAST) -->
-    <div id="toast-notification" class="fixed bottom-6 left-1/2 -translate-x-1/2 bg-brand-brown text-cozy-cream px-6 py-3.5 rounded-xl shadow-floating z-50 text-xs font-bold tracking-wider uppercase opacity-0 pointer-events-none transition-all duration-300 transform translate-y-4">
-        Adicionado à cesta! 🍪
+    <section class="combos section" id="combos" aria-labelledby="combosTitle">
+      <div class="shell">
+        <div class="section-heading section-heading--split reveal">
+          <div><span class="kicker">COMBOS DE ESFIRRAS ABERTAS</span><h2 id="combosTitle">Tem combo para cada tamanho de fome.</h2></div>
+          <p>Escolha o combo, selecione o sabor e adicione ao pedido. Os valores já ficam calculados no carrinho.</p>
+        </div>
+
+        <div class="combo-grid reveal">
+          <article class="combo-card" data-combo-id="11" data-option-index="0"><span class="combo-card__qty">6 un.</span><h3>Combo Esfirra</h3><p>Uma bandeja com 6 esfirras abertas.</p><strong>R$ 28,00</strong><button type="button" class="combo-card__button">Escolher sabor</button></article>
+          <article class="combo-card combo-card--accent" data-combo-id="11" data-option-index="1"><span class="combo-card__label">PARA DOIS</span><span class="combo-card__qty">12 un.</span><h3>Combo Casal</h3><p>12 esfirras abertas para dividir.</p><strong>R$ 52,00</strong><button type="button" class="combo-card__button">Escolher sabor</button></article>
+          <article class="combo-card" data-combo-id="11" data-option-index="2"><span class="combo-card__qty">15 un.</span><h3>Combo Família</h3><p>15 esfirras abertas para a mesa.</p><strong>R$ 65,00</strong><button type="button" class="combo-card__button">Escolher sabor</button></article>
+          <article class="combo-card combo-card--dark" data-combo-id="11" data-option-index="3"><span class="combo-card__label">MAIOR COMBO</span><span class="combo-card__qty">18 un.</span><h3>Combo Festa</h3><p>18 esfirras abertas para compartilhar.</p><strong>R$ 85,00</strong><button type="button" class="combo-card__button">Escolher sabor</button></article>
+        </div>
+      </div>
+    </section>
+
+    <section class="flavors section" id="sabores" aria-labelledby="flavorsTitle">
+      <div class="shell">
+        <div class="section-heading reveal"><span class="kicker">SABORES DAS ESFIRRAS</span><h2 id="flavorsTitle">Três sabores, uma massa douradinha.</h2><p>Veja as opções disponíveis para os combos.</p></div>
+        <div class="flavor-grid reveal">
+          <article><div class="flavor-media"><img src="assets/images/esfirra-queijo-presunto.webp" alt="Esfirra de queijo e presunto" width="720" height="960" loading="lazy" decoding="async"><span>01</span></div><h3>Queijo & Presunto</h3><p>Esfirra aberta de queijo com presunto.</p><button class="text-button" type="button" data-open-combo="Queijo e Presunto">Pedir esse sabor →</button></article>
+          <article><div class="flavor-media"><img src="assets/images/esfirra-queijo-manjericao.webp" alt="Esfirra de queijo e manjericão" width="1080" height="1440" loading="lazy" decoding="async"><span>02</span></div><h3>Queijo & Manjericão</h3><p>Esfirra aberta de queijo com manjericão.</p><button class="text-button" type="button" data-open-combo="Queijo e Manjericão">Pedir esse sabor →</button></article>
+          <article><div class="flavor-media"><img src="assets/images/esfirra-carne-cheddar.webp" alt="Esfirra de carne temperada com cheddar" width="720" height="960" loading="lazy" decoding="async"><span>03</span></div><h3>Carne Temperada & Cheddar</h3><p>Esfirra aberta de carne temperada com cheddar.</p><button class="text-button" type="button" data-open-combo="Carne Temperada com Cheddar">Pedir esse sabor →</button></article>
+        </div>
+      </div>
+    </section>
+
+    <section class="catalog section" id="cardapio" aria-labelledby="catalogTitle">
+      <div class="shell">
+        <div class="catalog-top reveal">
+          <div class="section-heading"><span class="kicker">CARDÁPIO COMPLETO</span><h2 id="catalogTitle">Encontre seu favorito.</h2><p>Use a busca ou os filtros. O carrinho continua salvo mesmo se você atualizar a página.</p></div>
+          <label class="search-field" for="searchInput"><svg viewBox="0 0 24 24" aria-hidden="true"><circle cx="11" cy="11" r="7"></circle><path d="m20 20-4-4"></path></svg><span class="sr-only">Buscar no cardápio</span><input id="searchInput" type="search" placeholder="Buscar goiabinha, pão, esfirra..." autocomplete="off"></label>
+        </div>
+
+        <div class="catalog-toolbar reveal">
+          <div class="category-tabs" id="categoryTabs" role="tablist" aria-label="Categorias do cardápio"></div>
+          <span class="results-count" id="resultsCount">0 itens</span>
+        </div>
+
+        <div class="products-grid" id="productsGrid" aria-live="polite"></div>
+        <div class="empty-state" id="emptyState" hidden><strong>Nenhum item encontrado.</strong><span>Tente outro termo ou volte para “Todos”.</span></div>
+      </div>
+    </section>
+
+    <section class="drink-section" aria-labelledby="drinkTitle">
+      <div class="shell drink-card reveal">
+        <div class="drink-card__copy"><span class="kicker kicker--light">PARA ACOMPANHAR</span><h2 id="drinkTitle">Coca-Cola 1,5L</h2><p>Complete seu pedido com Coca-Cola 1,5L e envie tudo junto pelo WhatsApp.</p><div class="drink-card__buy"><strong>R$ 12,00</strong><button class="btn btn--cream" type="button" data-quick-add="12">Adicionar ao pedido</button></div></div>
+        <figure class="drink-card__media"><img src="assets/images/coca-cola-1-5l.webp" alt="Garrafa de Coca-Cola 1,5L" width="1000" height="1000" loading="lazy" decoding="async"></figure>
+      </div>
+    </section>
+
+    <section class="brand-story section" id="marca" aria-labelledby="brandTitle">
+      <div class="shell brand-story__grid">
+        <div class="brand-story__media reveal"><img src="assets/images/embalagem-caseirinhos.webp" alt="Embalagem do Caseirinhos do Ju" width="1000" height="1000" loading="lazy" decoding="async"><div class="brand-story__mark"><img src="assets/images/logo.webp" alt="" width="220" height="220"></div></div>
+        <div class="brand-story__copy reveal"><span class="kicker">CASEIRINHOS DO JU</span><h2 id="brandTitle">Pães & Biscoitos feitos com carinho e sabor de casa.</h2><p>Do biscoito amanteigado ao pão caseiro, o Caseirinhos do Ju reúne opções para o café, o lanche e momentos de compartilhar. Escolha o que deseja e mande o pedido direto para o atendimento.</p><div class="brand-values"><div><strong>01</strong><span>Produção artesanal</span></div><div><strong>02</strong><span>Pães, biscoitos e esfirras</span></div><div><strong>03</strong><span>Pedidos pelo WhatsApp</span></div></div></div>
+      </div>
+    </section>
+
+    <section class="how section" id="como-pedir" aria-labelledby="howTitle">
+      <div class="shell">
+        <div class="section-heading reveal"><span class="kicker">PEDIR É SIMPLES</span><h2 id="howTitle">Do cardápio para o WhatsApp em poucos passos.</h2></div>
+        <div class="how-grid reveal">
+          <article><span>1</span><h3>Escolha os produtos</h3><p>Veja fotos, opções, pesos, sabores e valores no próprio cardápio.</p></article>
+          <article><span>2</span><h3>Monte o pedido</h3><p>Altere quantidades e confira o total no carrinho antes de continuar.</p></article>
+          <article><span>3</span><h3>Envie pelo WhatsApp</h3><p>Preencha seus dados e o site monta uma mensagem completa para confirmação.</p></article>
+        </div>
+      </div>
+    </section>
+
+    <section class="faq section" aria-labelledby="faqTitle">
+      <div class="shell faq__grid">
+        <div class="section-heading reveal"><span class="kicker">DÚVIDAS RÁPIDAS</span><h2 id="faqTitle">Antes de finalizar.</h2><p>O site organiza o pedido; disponibilidade e entrega são confirmadas pelo atendimento.</p></div>
+        <div class="faq-list reveal">
+          <details><summary>O pedido é confirmado automaticamente?<span>+</span></summary><p>Não. O site prepara a mensagem e o atendimento confirma disponibilidade, retirada ou entrega pelo WhatsApp.</p></details>
+          <details><summary>Quais sabores de esfirra estão disponíveis?<span>+</span></summary><p>Queijo e Presunto, Queijo e Manjericão e Carne Temperada com Cheddar.</p></details>
+          <details><summary>O carrinho fica salvo?<span>+</span></summary><p>Sim. O carrinho é salvo neste navegador para você continuar escolhendo mesmo depois de atualizar a página.</p></details>
+        </div>
+      </div>
+    </section>
+
+    <section class="final-cta" id="contato">
+      <div class="shell final-cta__inner reveal">
+        <img src="assets/images/logo.webp" alt="Caseirinhos do Ju" width="170" height="170" loading="lazy">
+        <div><span class="kicker kicker--light">PRONTO PARA PEDIR?</span><h2>Escolha seus Caseirinhos e deixe o WhatsApp fazer o resto.</h2></div>
+        <a class="btn btn--cream" href="#cardapio">Montar pedido</a>
+      </div>
+    </section>
+  </main>
+
+  <footer class="site-footer">
+    <div class="shell footer__grid">
+      <div class="footer__brand"><img src="assets/images/logo.webp" alt="Caseirinhos do Ju" width="96" height="96" loading="lazy"><p>Pães & Biscoitos<br>Feitos com carinho e sabor de casa.</p></div>
+      <div><h3>Cardápio</h3><a href="#combos">Combos</a><a href="#sabores">Esfirras</a><a href="#cardapio">Todos os produtos</a></div>
+      <div><h3>Contato</h3><a href="https://wa.me/5527996511588" target="_blank" rel="noopener">(27) 99651-1588</a><a href="https://www.instagram.com/caseirinho.doju/" target="_blank" rel="noopener">@caseirinho.doju</a></div>
+      <div><h3>Pedido</h3><button type="button" class="footer-cart-button" id="footerCartButton">Abrir meu pedido</button><a href="#como-pedir">Como funciona</a></div>
     </div>
+    <div class="shell footer__bottom"><span>© <span id="year"></span> Caseirinhos do Ju.</span><span>Catálogo digital para pedidos via WhatsApp.</span></div>
+  </footer>
 
-    <!-- ==========================================
-         SCRIPT DE COMPORTAMENTO AVANÇADO (CARRINHO E UI)
-         ========================================== -->
-    <script>
-        const CartSystem = (function() {
-            // Estado privado da aplicação
-            let state = {};
+  <button class="mobile-cart" id="mobileCartButton" type="button" hidden><span><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M3 4h2l2.2 10.2a2 2 0 0 0 2 1.6h7.6a2 2 0 0 0 2-1.5L20 8H7M10 20h.01M17 20h.01"/></svg><b id="mobileCartCount">0</b></span><strong>Ver pedido</strong><small id="mobileCartTotal">R$ 0,00</small></button>
+  <a class="whatsapp-float" href="https://wa.me/5527996511588" target="_blank" rel="noopener" aria-label="Falar no WhatsApp"><span>WA</span></a>
+  <button class="back-top" id="backTop" type="button" aria-label="Voltar ao topo">↑</button>
 
-            function showToast(message) {
-                const toast = document.getElementById('toast-notification');
-                toast.innerText = message;
-                toast.classList.remove('opacity-0', 'pointer-events-none', 'translate-y-4');
-                toast.classList.add('opacity-100', 'translate-y-0', 'animate-toast');
-                
-                setTimeout(() => {
-                    toast.classList.remove('opacity-100', 'translate-y-0', 'animate-toast');
-                    toast.classList.add('opacity-0', 'pointer-events-none', 'translate-y-4');
-                }, 2000);
-            }
+  <div class="overlay" id="drawerOverlay" hidden></div>
+  <aside class="cart-drawer" id="cartDrawer" aria-hidden="true" aria-labelledby="cartTitle">
+    <div class="drawer__head"><div><span class="kicker">SEU PEDIDO</span><h2 id="cartTitle">Carrinho</h2></div><button class="icon-button" id="closeCartButton" type="button" aria-label="Fechar carrinho">×</button></div>
+    <div class="drawer__content">
+      <div class="cart-empty" id="cartEmpty"><span>♡</span><strong>Seu pedido está vazio.</strong><p>Adicione um produto do cardápio para começar.</p><button type="button" class="btn btn--primary" id="browseProductsButton">Ver cardápio</button></div>
+      <div class="cart-items" id="cartItems"></div>
+    </div>
+    <div class="drawer__footer" id="cartFooter" hidden><div class="cart-summary"><span>Subtotal</span><strong id="cartSubtotal">R$ 0,00</strong></div><small>Taxa de entrega, se houver, é confirmada pelo atendimento.</small><button class="btn btn--primary btn--full" id="checkoutButton" type="button">Continuar pedido</button><button class="link-danger" id="clearCartButton" type="button">Limpar carrinho</button></div>
+  </aside>
 
-            function render() {
-                const listContainer = document.getElementById('cart-list');
-                const counter = document.getElementById('cart-counter');
-                const submitBtn = document.getElementById('cart-submit-btn');
-                const keys = Object.keys(state);
-                let totalQuantity = 0;
+  <div class="modal" id="comboModal" hidden aria-hidden="true" role="dialog" aria-modal="true" aria-labelledby="comboModalTitle">
+    <div class="modal__panel modal__panel--compact"><button class="modal__close" id="closeComboModal" type="button" aria-label="Fechar">×</button><span class="kicker">COMBO DE ESFIRRAS</span><h2 id="comboModalTitle">Escolha o sabor</h2><p id="comboModalDescription"></p><div class="combo-modal__options" id="comboFlavorOptions"></div><button class="btn btn--primary btn--full" id="confirmComboButton" type="button">Adicionar ao pedido</button></div>
+  </div>
 
-                if (keys.length === 0) {
-                    listContainer.innerHTML = 'Nenhum item selecionado. Comece adicionando seus preferidos ao lado!';
-                    listContainer.className = "space-y-4 max-h-[280px] overflow-y-auto custom-scrollbar pr-1 text-xs text-brand-brown/40 italic py-6 text-center font-light";
-                    counter.innerText = 0;
-                    submitBtn.disabled = true;
-                    return;
-                }
+  <div class="modal" id="checkoutModal" hidden aria-hidden="true" role="dialog" aria-modal="true" aria-labelledby="checkoutTitle">
+    <div class="modal__panel checkout-panel"><button class="modal__close" id="closeCheckoutButton" type="button" aria-label="Fechar checkout">×</button><span class="kicker">FINALIZAR PEDIDO</span><h2 id="checkoutTitle">Quase pronto.</h2><p>Preencha seus dados. A mensagem será aberta no WhatsApp para você conferir e enviar.</p>
+      <form id="checkoutForm" novalidate>
+        <div class="form-grid"><label>Nome *<input type="text" name="name" required autocomplete="name" maxlength="80"></label><label>Telefone *<input type="tel" name="phone" required autocomplete="tel" inputmode="tel" maxlength="20"></label></div>
+        <fieldset><legend>Como deseja receber?</legend><div class="choice-row"><label><input type="radio" name="delivery" value="Retirada" checked><span>Retirada</span></label><label><input type="radio" name="delivery" value="Entrega"><span>Entrega</span></label></div></fieldset>
+        <div class="address-fields" id="addressFields" hidden><div class="form-grid form-grid--3"><label>CEP<input type="text" name="zip" inputmode="numeric" maxlength="10"></label><label class="field-wide">Rua *<input type="text" name="street" maxlength="120"></label><label>Número *<input type="text" name="number" maxlength="12"></label></div><div class="form-grid"><label>Bairro *<input type="text" name="neighborhood" maxlength="80"></label><label>Cidade *<input type="text" name="city" maxlength="80"></label></div><label>Complemento<input type="text" name="complement" maxlength="100"></label></div>
+        <fieldset><legend>Forma de pagamento</legend><div class="choice-row choice-row--3"><label><input type="radio" name="payment" value="PIX" checked><span>PIX</span></label><label><input type="radio" name="payment" value="Dinheiro"><span>Dinheiro</span></label><label><input type="radio" name="payment" value="Cartão"><span>Cartão</span></label></div></fieldset>
+        <div id="changeFields" hidden><label>Troco para quanto?<input type="text" name="change" inputmode="decimal" placeholder="Ex.: R$ 100,00" maxlength="24"></label></div>
+        <label>Observações<textarea name="notes" rows="3" maxlength="400" placeholder="Ex.: horário preferido, referência, observações do pedido..."></textarea></label>
+        <div class="checkout-total"><span>Total dos produtos</span><strong id="checkoutTotal">R$ 0,00</strong></div>
+        <p class="form-error" id="formError" role="alert" hidden></p>
+        <button class="btn btn--whatsapp btn--full" type="submit">Abrir pedido no WhatsApp</button>
+      </form>
+    </div>
+  </div>
 
-                listContainer.innerHTML = '';
-                listContainer.className = "space-y-3 max-h-[280px] overflow-y-auto custom-scrollbar pr-1 py-1";
+  <div class="toast" id="toast" role="status" aria-live="polite"></div>
 
-                keys.forEach(item => {
-                    totalQuantity += state[item];
-                    const row = document.createElement('div');
-                    row.className = "flex items-center justify-between bg-cozy-sand/40 p-3 rounded-xl border border-brand-brown/[0.02]";
-                    row.innerHTML = `
-                        <span class="text-xs font-medium text-brand-brown pr-2 truncate-2-lines max-w-[160px]">${item}</span>
-                        <div class="flex items-center gap-2 flex-shrink-0">
-                            <button onclick="CartSystem.updateQty('${item}', ${state[item] - 1})" class="w-6 h-6 bg-white border border-brand-brown/10 text-brand-brown font-bold rounded-lg flex items-center justify-center text-xs hover:bg-brand-gold hover:text-white premium-transition shadow-sm">-</button>
-                            <span class="font-sans text-xs font-bold w-5 text-center text-brand-brown">${state[item]}</span>
-                            <button onclick="CartSystem.updateQty('${item}', ${state[item] + 1})" class="w-6 h-6 bg-white border border-brand-brown/10 text-brand-brown font-bold rounded-lg flex items-center justify-center text-xs hover:bg-brand-gold hover:text-white premium-transition shadow-sm">+</button>
-                        </div>
-                    `;
-                    listContainer.appendChild(row);
-                });
-
-                counter.innerText = totalQuantity;
-                submitBtn.disabled = false;
-            }
-
-            return {
-                addItem: function(name) {
-                    state[name] = (state[name] || 0) + 1;
-                    showToast(`${name} adicionado! 🍪`);
-                    render();
-                },
-                updateQty: function(name, qty) {
-                    if (qty <= 0) {
-                        delete state[name];
-                    } else {
-                        state[name] = qty;
-                    }
-                    render();
-                },
-                clearAll: function() {
-                    state = {};
-                    render();
-                    showToast('Cesta esvaziada!');
-                },
-                checkout: function() {
-                    const keys = Object.keys(state);
-                    if(keys.length === 0) return;
-
-                    let message = `Fala Junin, vim pelo site e gostaria de fazer uma encomenda:\n\n`;
-                    keys.forEach(item => {
-                        message += `• ${state[item]}x ${item}\n`;
-                    });
-                    message += `\nComo faço para prosseguir com o agendamento da entrega?`;
-
-                    window.open(`https://wa.me/5527996511588?text=${encodeURIComponent(message)}`, '_blank');
-                }
-            };
-        })();
-
-        // Comportamento Dinâmico de Transição do Header com a Rolagem
-        window.addEventListener('scroll', () => {
-            const header = document.getElementById('main-header');
-            if (window.scrollY > 40) {
-                header.classList.remove('top-6', 'rounded-2xl', 'w-[92%]');
-                header.classList.add('top-0', 'w-full', 'rounded-none', 'shadow-md', 'border-x-0', 'border-t-0', 'bg-white/90');
-            } else {
-                header.classList.remove('top-0', 'w-full', 'rounded-none', 'shadow-md', 'border-x-0', 'border-t-0', 'bg-white/90');
-                header.classList.add('top-6', 'rounded-2xl', 'w-[92%]');
-            }
-        });
-    </script>
+  <script src="assets/js/catalog-data.js" defer></script>
+  <script src="assets/js/app.js" defer></script>
 </body>
 </html>

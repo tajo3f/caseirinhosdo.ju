@@ -1,41 +1,124 @@
-# 🍪 Caseirinhos do Ju - Landing Page de Alta Conversão
+# Caseirinhos do Ju — Premium V6
 
-Este é o repositório do site oficial do **Caseirinhos do Ju**, um negócio artesanal de alimentos caseiros (pães, biscoitos amanteigados e casadinhos). O site foi desenvolvido com foco total em **conversão mobile**, projetado para transformar visitantes em pedidos reais diretamente no WhatsApp do Anderson Júnior (Junin).
+Catálogo digital mobile-first para **Pães & Biscoitos**, com identidade visual própria, carrinho persistente, combos de esfirras, checkout via WhatsApp, SEO técnico, páginas individuais de produto, PWA e publicação automatizada no GitHub Pages.
 
----
+## Principais melhorias da V6
 
-## 🎯 Objetivo do Projeto
-Maximizar as vendas do negócio local através de uma experiência de utilizador rápida, simples e altamente persuasiva. Cada botão de produto gera automaticamente uma mensagem personalizada para o WhatsApp do negócio, agilizando o processo de atendimento e fecho do pedido.
+- A imagem enviada da **Coca-Cola 1,5L** foi incorporada como fonte original e convertida para WebP otimizado sem alterar o conteúdo.
+- Estrutura responsiva revisada para 320px até desktop/ultrawide.
+- Imagens com proporção controlada e `object-fit`, sem deformação.
+- Carrinho persistente em `localStorage`, com total automático e controle de quantidades.
+- Checkout reforçado: valida nome/telefone e exige endereço mínimo quando o cliente escolhe **Entrega**.
+- Máscara de telefone e CEP no checkout.
+- Combos de esfirras com seletor de sabor.
+- Busca e filtros do catálogo.
+- Scroll personalizado, indicador de progresso, botão de voltar ao topo e animações respeitando `prefers-reduced-motion`.
+- PWA com service worker corrigido: navegação offline usa página própria e não devolve HTML no lugar de imagens.
+- SEO técnico com Organization, ItemList, FAQ e páginas individuais de produtos com Product + BreadcrumbList.
+- `sitemap.xml` gerado com a página inicial e todas as páginas de produtos.
+- GitHub Actions com validação de estrutura, JavaScript, preços, imagens e testes antes do deploy.
+- Compatível com GitHub Pages, Netlify, Vercel e hospedagem estática comum.
+- Camada Python opcional para servir localmente e expor `/api/health` e `/api/catalog`.
 
----
+## Produtos e valores cadastrados
 
-## 🎨 Identidade Visual e Comunicação
-* **Estilo Visual:** Artesanal, caseiro, aconchegante e familiar.
-* **Paleta de Cores:** Cores quentes e suaves baseadas em tons de creme, bege, caramelo e marrom-escuro para evocar a sensação de "feito com amor".
-* **Tom de Voz:** Humano, afetuoso, regional e muito próximo do cliente.
+- Casadinho de Maracujá Puro — **R$ 26,00**
+- Casadinho de Maracujá com Chocolate — **R$ 27,00**
+- Combo Esfirra — 6 un. — **R$ 28,00**
+- Combo Casal — 12 un. — **R$ 52,00**
+- Combo Família — 15 un. — **R$ 65,00**
+- Combo Festa — 18 un. — **R$ 85,00**
+- Coca-Cola 1,5L — **R$ 12,00**
 
----
+Sabores de esfirra:
 
-## 🧭 Estrutura do Site (SPA - Single Page Application)
-O site foi construído num formato de página única com navegação suave através do menu fixo:
-1. **Início (Hero Section):** Proposta de valor clara, imagem apelativa e o CTA (Call to Action) principal.
-2. **Diferenciais:** Três blocos em destaque detalhando os pontos fortes do negócio (Produção artesanal, Encomendas sob pedido e Atendimento rápido).
-3. **Quem Somos:** Seção institucional humanizada contando a história do Anderson Júnior e a missão da marca.
-4. **Catálogo de Produtos:** A secção mais importante, com cartões individuais para cada produto e botões de encomenda dedicados.
-5. **Botão Flutuante:** Acesso rápido ao WhatsApp visível a todo o momento em qualquer ponto da página.
+- Queijo e Presunto
+- Queijo e Manjericão
+- Carne Temperada com Cheddar
 
----
+## Abrir localmente
 
-## 🛠️ Tecnologias Utilizadas
-* **HTML5:** Estruturação semântica e acessível.
-* **Tailwind CSS (via CDN):** Framework utilitário para um design moderno, totalmente responsivo (Mobile-First) e desenvolvimento ultra-rápido.
-* **Google Fonts:** Combinação das famílias *Inter* (para máxima legibilidade nos textos) e *Playfair Display* (para um toque rústico e artesanal nos títulos).
+### Sem instalar nada
 
----
+Abra `index.html` no navegador. O catálogo e o carrinho funcionam localmente.
 
-## ⚙️ Como Alterar os Links do WhatsApp
+### Com Python
 
-Caso precise de alterar o número de telefone ou as mensagens automáticas no futuro, localize os links no ficheiro `index.html` que seguem o padrão da API do WhatsApp:
+```bash
+python server.py
+```
+
+Depois acesse `http://localhost:5000`.
+
+## Editar produtos
+
+Edite somente:
 
 ```text
-[https://wa.me/5527996511588?text=Sua%20Mensagem%20Aqui](https://wa.me/5527996511588?text=Sua%20Mensagem%20Aqui)
+data/catalog.json
+```
+
+Depois execute:
+
+```bash
+python scripts/build_catalog.py
+python scripts/build_product_pages.py
+```
+
+## Testar antes de publicar
+
+```bash
+python scripts/build_catalog.py
+python scripts/build_product_pages.py
+python scripts/validate_site.py
+node --check assets/js/catalog-data.js
+node --check assets/js/app.js
+node --check sw.js
+python -m unittest discover -s tests -v
+```
+
+## GitHub Pages
+
+1. Crie um repositório.
+2. Envie **todo o conteúdo desta pasta** para a raiz do repositório.
+3. Em `Settings > Pages`, escolha **GitHub Actions** como Source.
+4. Faça push na branch `main` ou `master`.
+5. O workflow valida, gera as páginas de produto, ajusta canonical/sitemap para a URL do repositório e publica automaticamente.
+
+Veja `docs/GITHUB-PAGES.md` para o passo a passo completo.
+
+## Estrutura
+
+```text
+.
+├── index.html
+├── 404.html
+├── offline.html
+├── assets/
+│   ├── css/style.css
+│   ├── js/app.js
+│   ├── js/catalog-data.js
+│   ├── images/
+│   ├── icons/
+│   └── source/coca-cola-original.png
+├── data/catalog.json
+├── produtos/<slug>/index.html
+├── scripts/
+│   ├── build_catalog.py
+│   ├── build_product_pages.py
+│   ├── build_static.py
+│   └── validate_site.py
+├── tests/
+├── docs/
+├── .github/workflows/
+├── manifest.webmanifest
+├── sw.js
+├── robots.txt
+├── sitemap.xml
+├── server.py
+└── app.py
+```
+
+## Observação comercial
+
+O site **não confirma disponibilidade, entrega ou taxa automaticamente**. O pedido é montado no navegador e enviado ao WhatsApp para confirmação pelo atendimento.

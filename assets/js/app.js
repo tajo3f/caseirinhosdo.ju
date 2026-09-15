@@ -4,7 +4,7 @@
   const CONFIG = Object.freeze({
     company: "Caseirinhos do Ju",
     whatsapp: "5527996511588",
-    instagram: "caseirinho.doju",
+    instagram: "caseirinhos.doju",
     storageKey: "caseirinhos_do_ju_cart_v6"
   });
 

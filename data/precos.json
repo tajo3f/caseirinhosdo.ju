@@ -1,22 +1,52 @@
 {
-  "amanteigados": {
+  "amanteigado-goiabinha": {
     "200g": 15,
     "500g": 26,
     "1kg": 53
   },
-
-  "paes_caseiros": {
-    "unidade": 15
+  "amanteigado-maracuja": {
+    "200g": 15,
+    "500g": 26,
+    "1kg": 53
   },
-
-  "esfirras": {
-    "combo_6": 28,
-    "combo_12": 52,
-    "combo_15": 65,
-    "combo_18": 85
+  "amanteigado-coco-chocolate": {
+    "200g": 15,
+    "500g": 26,
+    "1kg": 53
   },
-
-  "bebidas": {
-    "coca_cola_1_5l": 12
+  "amanteigado-ninho-chocolate": {
+    "200g": 15,
+    "500g": 26,
+    "1kg": 53
+  },
+  "casadinho-classico": {
+    "200g": 15,
+    "500g": 26,
+    "1kg": 53
+  },
+  "casadinho-maracuja-puro": {
+    "200g": 15,
+    "500g": 26,
+    "1kg": 53
+  },
+  "casadinho-maracuja-chocolate": {
+    "200g": 15,
+    "500g": 26,
+    "1kg": 53
+  },
+  "pao-caseiro-doce": {
+    "Unidade": 15
+  },
+  "pao-caseiro-sal-cebola": {
+    "Unidade": 15
+  },
+  "combos-esfirras-abertas": {
+    "Combo Esfirra · 6 un.": 28,
+    "Combo Casal · 12 un.": 52,
+    "Combo Família · 15 un.": 65,
+    "Combo Festa · 18 un.": 85
+  },
+  "coca-cola-1-5l": {
+    "Garrafa 1,5L": 12
   }
 }

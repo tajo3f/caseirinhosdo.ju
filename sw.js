@@ -1,4 +1,4 @@
-const CACHE = "caseirinhos-v7-ultra-prices-v1";
+const CACHE = "caseirinhos-v8-prices";
 const CORE = [
   "./",
   "index.html",
@@ -14,7 +14,11 @@ const CORE = [
 ];
 
 self.addEventListener("install", (event) => {
-  event.waitUntil(caches.open(CACHE).then((cache) => cache.addAll(CORE)).then(() => self.skipWaiting()));
+  event.waitUntil(
+    caches.open(CACHE)
+      .then((cache) => cache.addAll(CORE))
+      .then(() => self.skipWaiting())
+  );
 });
 
 self.addEventListener("activate", (event) => {
@@ -28,8 +32,25 @@ self.addEventListener("activate", (event) => {
 self.addEventListener("fetch", (event) => {
   const request = event.request;
   if (request.method !== "GET") return;
+
   const url = new URL(request.url);
   if (url.origin !== self.location.origin) return;
+
+  // Price/catalog data is network-first so price changes are not stuck in an old mobile cache.
+  if (url.pathname.endsWith("/assets/js/catalog-data.js")) {
+    event.respondWith(
+      fetch(request, { cache: "no-store" })
+        .then((response) => {
+          if (response && response.ok) {
+            const copy = response.clone();
+            caches.open(CACHE).then((cache) => cache.put(request, copy));
+          }
+          return response;
+        })
+        .catch(() => caches.match(request))
+    );
+    return;
+  }
 
   if (request.mode === "navigate") {
     event.respondWith(
@@ -43,24 +64,6 @@ self.addEventListener("fetch", (event) => {
     );
     return;
   }
-
-if (url.pathname.endsWith("/assets/js/catalog-data.js")) {
-  event.respondWith(
-    fetch(request, { cache: "no-store" })
-      .then((response) => {
-        const copy = response.clone();
-
-        caches.open(CACHE).then((cache) => {
-          cache.put(request, copy);
-        });
-
-        return response;
-      })
-      .catch(() => caches.match(request))
-  );
-
-  return;
-}
 
   event.respondWith(
     caches.match(request).then((cached) => {

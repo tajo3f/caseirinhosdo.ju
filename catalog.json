@@ -1,0 +1,260 @@
+{
+  "version": 8,
+  "currency": "BRL",
+  "products": [
+    {
+      "id": 1,
+      "slug": "amanteigado-goiabinha",
+      "name": "Amanteigado de Goiabinha",
+      "category": "Amanteigados",
+      "description": "Biscoito amanteigado com goiabinha, delicado e feito artesanalmente.",
+      "image": "assets/images/goiabinha.webp",
+      "badge": "Artesanal",
+      "featured": true,
+      "options": [
+        {
+          "label": "200g",
+          "price": 15.0
+        },
+        {
+          "label": "500g",
+          "price": 26.0
+        },
+        {
+          "label": "1kg",
+          "price": 53.0
+        }
+      ]
+    },
+    {
+      "id": 2,
+      "slug": "amanteigado-maracuja",
+      "name": "Amanteigado de Maracujá",
+      "category": "Amanteigados",
+      "description": "Amanteigado artesanal com o sabor marcante do maracujá.",
+      "image": "assets/images/maracuja.webp",
+      "badge": "Maracujá",
+      "featured": true,
+      "options": [
+        {
+          "label": "200g",
+          "price": 15.0
+        },
+        {
+          "label": "500g",
+          "price": 26.0
+        },
+        {
+          "label": "1kg",
+          "price": 53.0
+        }
+      ]
+    },
+    {
+      "id": 3,
+      "slug": "amanteigado-coco-chocolate",
+      "name": "Amanteigado de Coco com Chocolate",
+      "category": "Amanteigados",
+      "description": "Coco e chocolate em um amanteigado preparado para derreter na boca.",
+      "image": "assets/images/coco-chocolate.webp",
+      "badge": "Coco + chocolate",
+      "featured": true,
+      "options": [
+        {
+          "label": "200g",
+          "price": 15.0
+        },
+        {
+          "label": "500g",
+          "price": 26.0
+        },
+        {
+          "label": "1kg",
+          "price": 53.0
+        }
+      ]
+    },
+    {
+      "id": 4,
+      "slug": "amanteigado-ninho-chocolate",
+      "name": "Amanteigado de Ninho com Chocolate",
+      "category": "Amanteigados",
+      "description": "Amanteigado artesanal com recheio de chocolate.",
+      "image": "assets/images/ninho-chocolate.webp",
+      "badge": "Ninho + chocolate",
+      "options": [
+        {
+          "label": "200g",
+          "price": 15.0
+        },
+        {
+          "label": "500g",
+          "price": 26.0
+        },
+        {
+          "label": "1kg",
+          "price": 53.0
+        }
+      ]
+    },
+    {
+      "id": 5,
+      "slug": "casadinho-classico",
+      "name": "Casadinho",
+      "category": "Casadinhos",
+      "description": "Biscoito amanteigado recheado, preparado artesanalmente.",
+      "image": "assets/images/casadinho.webp",
+      "badge": "Clássico",
+      "options": [
+        {
+          "label": "200g",
+          "price": 15.0
+        },
+        {
+          "label": "500g",
+          "price": 26.0
+        },
+        {
+          "label": "1kg",
+          "price": 53.0
+        }
+      ]
+    },
+    {
+      "id": 6,
+      "slug": "casadinho-maracuja-puro",
+      "name": "Casadinho de Maracujá Puro",
+      "category": "Casadinhos",
+      "description": "Casadinho artesanal de maracujá puro.",
+      "image": "assets/images/maracuja.webp",
+      "badge": "Especial",
+      "options": [
+        {
+          "label": "200g",
+          "price": 15.0
+        },
+        {
+          "label": "500g",
+          "price": 26.0
+        },
+        {
+          "label": "1kg",
+          "price": 53.0
+        }
+      ]
+    },
+    {
+      "id": 7,
+      "slug": "casadinho-maracuja-chocolate",
+      "name": "Casadinho de Maracujá com Chocolate",
+      "category": "Casadinhos",
+      "description": "Maracujá com chocolate em uma versão especial do casadinho.",
+      "image": "assets/images/ninho-chocolate.webp",
+      "badge": "Especial",
+      "options": [
+        {
+          "label": "200g",
+          "price": 15.0
+        },
+        {
+          "label": "500g",
+          "price": 26.0
+        },
+        {
+          "label": "1kg",
+          "price": 53.0
+        }
+      ]
+    },
+    {
+      "id": 8,
+      "slug": "pao-caseiro-doce",
+      "name": "Pão Caseiro Doce",
+      "category": "Pães",
+      "description": "Pão caseiro doce, macio e preparado artesanalmente.",
+      "image": "assets/images/pao-doce.webp",
+      "badge": "Pão caseiro",
+      "options": [
+        {
+          "label": "Unidade",
+          "price": 15.0
+        }
+      ]
+    },
+    {
+      "id": 9,
+      "slug": "pao-caseiro-sal-cebola",
+      "name": "Pão Caseiro de Sal e Cebola",
+      "category": "Pães",
+      "description": "Pão salgado artesanal com cebola.",
+      "image": "assets/images/pao-sal-cebola.webp",
+      "badge": "Sal e cebola",
+      "options": [
+        {
+          "label": "Unidade",
+          "price": 15.0
+        }
+      ]
+    },
+    {
+      "id": 10,
+      "slug": "pao-hamburguer-caseiro",
+      "name": "Pão de Hambúrguer Caseiro",
+      "category": "Pães",
+      "description": "Pão de hambúrguer caseiro, macio e leve.",
+      "image": "assets/images/pao-hamburguer.webp",
+      "badge": "Sob encomenda",
+      "consultPrice": true,
+      "options": []
+    },
+    {
+      "id": 11,
+      "slug": "combos-esfirras-abertas",
+      "name": "Combos de Esfirras Abertas",
+      "category": "Esfirras",
+      "description": "Escolha o tamanho do combo e um dos sabores disponíveis.",
+      "image": "assets/images/esfirra-carne-cheddar.webp",
+      "badge": "Combos",
+      "featured": true,
+      "flavors": [
+        "Queijo e Presunto",
+        "Queijo e Manjericão",
+        "Carne Temperada com Cheddar"
+      ],
+      "options": [
+        {
+          "label": "Combo Esfirra · 6 un.",
+          "price": 28.0
+        },
+        {
+          "label": "Combo Casal · 12 un.",
+          "price": 52.0
+        },
+        {
+          "label": "Combo Família · 15 un.",
+          "price": 65.0
+        },
+        {
+          "label": "Combo Festa · 18 un.",
+          "price": 85.0
+        }
+      ]
+    },
+    {
+      "id": 12,
+      "slug": "coca-cola-1-5l",
+      "name": "Coca-Cola 1,5L",
+      "category": "Bebidas",
+      "description": "Coca-Cola 1,5L para acompanhar o pedido.",
+      "image": "assets/images/coca-cola-1-5l.webp",
+      "badge": "1,5L",
+      "featured": true,
+      "options": [
+        {
+          "label": "Garrafa 1,5L",
+          "price": 12.0
+        }
+      ]
+    }
+  ]
+}

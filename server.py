@@ -12,8 +12,9 @@ from http.server import SimpleHTTPRequestHandler, ThreadingHTTPServer
 from pathlib import Path
 from urllib.parse import urlparse
 
+from scripts.catalog_loader import load_catalog
+
 ROOT = Path(__file__).resolve().parent
-CATALOG_PATH = ROOT / "data" / "catalog.json"
 
 
 class CaseirinhosHandler(SimpleHTTPRequestHandler):
@@ -32,7 +33,7 @@ class CaseirinhosHandler(SimpleHTTPRequestHandler):
             self._json({"ok": True, "service": "caseirinhos-do-ju"})
             return
         if path == "/api/catalog":
-            self._json(json.loads(CATALOG_PATH.read_text(encoding="utf-8")))
+            self._json(load_catalog())
             return
         super().do_GET()
 

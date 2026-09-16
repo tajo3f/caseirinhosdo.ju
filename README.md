@@ -1,6 +1,15 @@
-# Caseirinhos do Ju — Premium V7 ULTRA
+# Caseirinhos do Ju — Premium V8 · Preços Fáceis
 
-Versão evoluída com a **TAJO WEB MASTER SKILL V2 ULTRA** aplicada sobre a base V6.1, preservando o catálogo, o carrinho e a integração com WhatsApp.
+Versão baseada na V7 ULTRA, com os novos valores aplicados e edição simplificada por `data/precos.json`, preservando UI/UX, VFX, catálogo, carrinho, WhatsApp e compatibilidade com GitHub Pages.
+
+## O que mudou na V8
+
+- novos valores aplicados aos Amanteigados, Casadinhos e Pães Caseiros;
+- novo arquivo `data/precos.json` para alterar somente preços pelo celular;
+- build do catálogo e páginas de produto passa a ler `precos.json`;
+- API local `/api/catalog` usa os mesmos preços do site;
+- Service Worker atualizado para evitar preço antigo preso no cache do celular;
+- testes atualizados para conferir os novos valores.
 
 ## O que mudou na V7
 
@@ -44,8 +53,10 @@ Catálogo digital mobile-first para **Pães & Biscoitos**, com identidade visual
 
 ## Produtos e valores cadastrados
 
-- Casadinho de Maracujá Puro — **R$ 26,00**
-- Casadinho de Maracujá com Chocolate — **R$ 27,00**
+- Amanteigados e Casadinhos — **200g R$ 15,00 · 500g R$ 26,00 · 1kg R$ 53,00**
+- Pão Caseiro Doce — **R$ 15,00/unidade**
+- Pão Caseiro de Sal e Cebola — **R$ 15,00/unidade**
+- Pão de Hambúrguer Caseiro — **sob consulta**
 - Combo Esfirra — 6 un. — **R$ 28,00**
 - Combo Casal — 12 un. — **R$ 52,00**
 - Combo Família — 15 un. — **R$ 65,00**
@@ -72,20 +83,17 @@ python server.py
 
 Depois acesse `http://localhost:5000`.
 
-## Editar produtos
+## Editar preços pelo celular
 
 Edite somente:
 
 ```text
-data/catalog.json
+data/precos.json
 ```
 
-Depois execute:
+No GitHub: abra o arquivo → lápis → altere os números → `Commit changes`. O GitHub Actions faz o build e publica automaticamente.
 
-```bash
-python scripts/build_catalog.py
-python scripts/build_product_pages.py
-```
+Para alterar nome, descrição, categoria, imagem ou estrutura do produto, use `data/catalog.json`.
 
 ## Testar antes de publicar
 
@@ -123,9 +131,12 @@ Veja `docs/GITHUB-PAGES.md` para o passo a passo completo.
 │   ├── images/
 │   ├── icons/
 │   └── source/coca-cola-original.png
-├── data/catalog.json
+├── data/
+│   ├── catalog.json
+│   └── precos.json
 ├── produtos/<slug>/index.html
 ├── scripts/
+│   ├── catalog_loader.py
 │   ├── build_catalog.py
 │   ├── build_product_pages.py
 │   ├── build_static.py

@@ -1,26 +1,31 @@
-CASEIRINHOS DO JU — V7 ULTRA
+CASEIRINHOS DO JU — V8 PREÇOS FÁCEIS
 
-1) Para testar localmente:
-   python server.py
-   Abra http://localhost:8000
+1) PARA ALTERAR PREÇOS PELO CELULAR
+   Abra no GitHub:
+   data/precos.json
 
-2) Para editar produtos e preços:
+   Altere apenas os números e faça Commit changes.
+   O GitHub Actions atualiza automaticamente o catálogo e as páginas dos produtos.
+
+2) PARA EDITAR NOMES, TEXTOS OU IMAGENS DOS PRODUTOS
    data/catalog.json
-   Depois rode: python scripts/build_catalog.py
 
-3) Para trocar imagens:
+3) PARA TESTAR LOCALMENTE
+   python server.py
+   Abra http://localhost:5000
+
+4) PARA TROCAR IMAGENS
    assets/images/
 
-4) Camada visual principal:
-   assets/css/style.css
-   assets/css/vfx.css
+5) GITHUB PAGES
+   Envie todo o conteúdo desta pasta para a raiz do repositório.
+   Em Settings > Pages, use GitHub Actions como Source.
 
-5) Interações:
-   assets/js/app.js
-   assets/js/vfx.js
+VALORES ATUAIS PRINCIPAIS
+- Amanteigados e Casadinhos: 200g R$15 | 500g R$26 | 1kg R$53
+- Pão Caseiro Doce: R$15/unidade
+- Pão Caseiro de Sal e Cebola: R$15/unidade
+- Combos de esfirras: R$28 | R$52 | R$65 | R$85
+- Coca-Cola 1,5L: R$12
 
-6) GitHub Pages:
-   suba todos os arquivos na raiz do repositório.
-   O workflow .github/workflows/pages.yml faz validação, build e deploy.
-
-A assinatura TAJO Digital 3F fica somente no cabeçalho do site.
+A assinatura TAJO Digital 3F permanece apenas no cabeçalho.
